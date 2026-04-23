@@ -1,0 +1,44 @@
+---
+interface Props {
+  items: { q: string; a: string }[];
+  heading?: string;
+  eyebrow?: string;
+}
+
+const { items, heading, eyebrow } = Astro.props;
+---
+
+<div class="grid gap-10 lg:grid-cols-[0.9fr_1.5fr]">
+  <div>
+    {eyebrow && (
+      <span class="mb-3 inline-block font-heading text-[0.7rem] font-semibold uppercase tracking-[0.16em] text-accent">
+        {eyebrow}
+      </span>
+    )}
+    {heading && <h2 class="text-foreground">{heading}</h2>}
+    <p class="mt-4 max-w-md text-foreground/70">
+      Still unanswered? Send a WhatsApp message, we respond personally, not via a bot.
+    </p>
+  </div>
+
+  <div class="border-t border-border">
+    {
+      items.map((item) => (
+        <details class="group border-b border-border">
+          <summary class="flex cursor-pointer items-center justify-between gap-6 py-5 text-left font-heading text-lg font-semibold text-foreground list-none">
+            <span>{item.q}</span>
+            <span
+              class="grid h-8 w-8 flex-shrink-0 place-items-center rounded-full border border-border text-foreground/70 transition-transform duration-200 group-open:rotate-45"
+              aria-hidden="true"
+            >
+              <svg viewBox="0 0 24 24" width="14" height="14">
+                <path d="M12 5V19M5 12H19" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+              </svg>
+            </span>
+          </summary>
+          <div class="pb-6 pr-14 text-foreground/75 leading-relaxed">{item.a}</div>
+        </details>
+      ))
+    }
+  </div>
+</div>

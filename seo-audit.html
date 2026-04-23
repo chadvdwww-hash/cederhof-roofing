@@ -1,0 +1,1062 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Competitor Benchmark Audit — HMC Works | KILO Agency</title>
+<meta name="description" content="KILO Agency competitor benchmark SEO audit of HMC Works. Strategic intelligence for the Cederhof Roofing website build. Overall score 60, Grade C.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700;900&family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --kilo-dark: #282828;
+  --kilo-light: #ffffff;
+  --kilo-accent: #ccff00;
+  --kilo-accent-hover: #b3e600;
+  --kilo-text-light: #e0e0e0;
+  --kilo-text-dark: #282828;
+  --kilo-text-muted: #9a9a9a;
+  --kilo-border: rgba(255,255,255,0.1);
+  --kilo-border-accent: rgba(204,255,0,0.2);
+  --kilo-card-bg: rgba(255,255,255,0.03);
+  --kilo-card-bg-hover: rgba(255,255,255,0.06);
+  --pass: #22c55e;
+  --pass-bg: rgba(34,197,94,0.1);
+  --warn: #eab308;
+  --warn-bg: rgba(234,179,8,0.1);
+  --fail: #ef4444;
+  --fail-bg: rgba(239,68,68,0.1);
+  --font-archivo: 'Archivo', sans-serif;
+  --font-space: 'Space Grotesk', sans-serif;
+  --font-inter: 'Inter', sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { -webkit-font-smoothing: antialiased; scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-inter);
+  background: var(--kilo-dark);
+  color: var(--kilo-text-light);
+  font-size: 16px;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+::selection { background: var(--kilo-accent); color: var(--kilo-text-dark); }
+
+/* Layout */
+.wrap { max-width: 820px; margin: 0 auto; padding: 3rem 2rem; }
+
+/* Cover */
+.cover { padding: 4rem 0 3rem; border-bottom: 1px solid var(--kilo-border); margin-bottom: 3rem; }
+.badge-top {
+  display: inline-block;
+  padding: 0.45rem 1rem;
+  border: 1px solid var(--kilo-border-accent);
+  border-radius: 100px;
+  font-family: var(--font-space);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--kilo-accent);
+  margin-bottom: 2rem;
+}
+.cover h1 {
+  font-family: var(--font-archivo);
+  font-size: 2.8rem;
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: var(--kilo-light);
+  margin-bottom: 1.5rem;
+}
+.cover h1 em { color: var(--kilo-accent); font-style: normal; }
+.cover .subtitle {
+  font-family: var(--font-space);
+  font-size: 1.05rem;
+  font-weight: 400;
+  color: var(--kilo-text-muted);
+  max-width: 620px;
+  line-height: 1.55;
+  margin-bottom: 2.5rem;
+}
+.divider { width: 60px; height: 2px; background: var(--kilo-accent); margin-bottom: 2rem; }
+.cover .meta {
+  font-size: 0.78rem;
+  color: var(--kilo-text-muted);
+  line-height: 2;
+}
+.cover .meta strong { color: var(--kilo-text-light); font-weight: 600; }
+.cover .meta a { color: var(--kilo-accent); text-decoration: none; }
+
+/* Score section */
+.score-section {
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+  padding: 2rem 0 3rem;
+  margin-bottom: 3rem;
+  border-bottom: 1px solid var(--kilo-border);
+}
+.score-circle-wrap { flex-shrink: 0; }
+.score-circle {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at center, rgba(234,179,8,0.12) 0%, transparent 70%);
+  border: 2px solid var(--warn);
+  position: relative;
+  animation: pulseGlowWarn 3s ease-in-out infinite;
+}
+.score-number {
+  font-family: var(--font-archivo);
+  font-size: 3.6rem;
+  font-weight: 900;
+  line-height: 1;
+  color: var(--kilo-light);
+}
+.score-grade {
+  font-family: var(--font-space);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--warn);
+  margin-top: 0.4rem;
+}
+.score-label {
+  font-family: var(--font-space);
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--kilo-text-muted);
+  margin-top: 0.2rem;
+}
+.score-text h2 {
+  font-family: var(--font-archivo);
+  font-size: 1.55rem;
+  font-weight: 700;
+  color: var(--kilo-light);
+  margin-bottom: 0.85rem;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+}
+.score-text p {
+  color: var(--kilo-text-muted);
+  font-size: 0.95rem;
+  line-height: 1.75;
+}
+
+@keyframes pulseGlowWarn {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(234,179,8,0.25); }
+  50% { box-shadow: 0 0 30px 6px rgba(234,179,8,0.12); }
+}
+
+/* Category bars */
+.bars { margin-bottom: 3rem; }
+.bars-title {
+  font-family: var(--font-space);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--kilo-text-muted);
+  margin-bottom: 1.5rem;
+}
+.bar {
+  margin-bottom: 1.1rem;
+}
+.bar-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 0.5rem;
+}
+.bar-label {
+  font-family: var(--font-space);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--kilo-text-light);
+}
+.bar-value {
+  font-family: var(--font-archivo);
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+.bar-track {
+  height: 6px;
+  background: var(--kilo-border);
+  border-radius: 3px;
+  overflow: hidden;
+}
+.bar-fill {
+  height: 100%;
+  border-radius: 3px;
+  animation: barGrow 1.4s ease-out forwards;
+}
+@keyframes barGrow { from { width: 0; } }
+.bar-fill.pass { background: var(--pass); }
+.bar-fill.warn { background: var(--warn); }
+.bar-fill.fail { background: var(--fail); }
+.bar-value.pass { color: var(--pass); }
+.bar-value.warn { color: var(--warn); }
+.bar-value.fail { color: var(--fail); }
+
+/* TOC */
+.toc { margin-bottom: 4rem; padding: 2rem; background: var(--kilo-card-bg); border: 1px solid var(--kilo-border); border-radius: 8px; }
+.toc-title {
+  font-family: var(--font-space);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--kilo-accent);
+  margin-bottom: 1.25rem;
+}
+.toc ol { list-style: none; }
+.toc li {
+  font-family: var(--font-space);
+  font-size: 0.95rem;
+  padding: 0.7rem 0;
+  border-bottom: 1px solid var(--kilo-border);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.toc li:last-child { border-bottom: none; }
+.toc li .num {
+  font-family: var(--font-archivo);
+  font-weight: 700;
+  color: var(--kilo-text-muted);
+  min-width: 2.5ch;
+}
+.toc li a {
+  color: var(--kilo-text-light);
+  text-decoration: none;
+  flex: 1;
+  transition: color 0.15s;
+}
+.toc li a:hover { color: var(--kilo-accent); }
+.toc li .arrow { color: var(--kilo-accent); font-weight: 700; }
+
+/* Section */
+.section { margin-bottom: 4rem; scroll-margin-top: 2rem; }
+.section-number {
+  font-family: var(--font-archivo);
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: rgba(255,255,255,0.08);
+  line-height: 1;
+  margin-bottom: 0.4rem;
+}
+.section-title {
+  font-family: var(--font-archivo);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--kilo-light);
+  margin-bottom: 1rem;
+  letter-spacing: -0.01em;
+}
+.section-intro {
+  color: var(--kilo-text-muted);
+  font-size: 0.95rem;
+  line-height: 1.75;
+  margin-bottom: 2rem;
+  max-width: 680px;
+}
+
+/* Finding card */
+.finding {
+  padding: 1.25rem 1.25rem 1.25rem 1.5rem;
+  background: var(--kilo-card-bg);
+  border-left: 3px solid var(--kilo-accent);
+  border-radius: 0 6px 6px 0;
+  margin-bottom: 1rem;
+  transition: background 0.2s;
+}
+.finding:hover { background: var(--kilo-card-bg-hover); }
+.finding.pass { border-left-color: var(--pass); }
+.finding.warn { border-left-color: var(--warn); }
+.finding.fail { border-left-color: var(--fail); }
+.finding-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+.finding-title {
+  font-family: var(--font-space);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--kilo-light);
+  flex: 1;
+  line-height: 1.4;
+}
+.finding-desc {
+  font-size: 0.9rem;
+  color: var(--kilo-text-muted);
+  line-height: 1.7;
+}
+.finding-desc code {
+  font-family: 'SF Mono', 'Menlo', 'Monaco', 'Consolas', monospace;
+  font-size: 0.82rem;
+  color: var(--kilo-accent);
+  background: rgba(204,255,0,0.06);
+  padding: 0.1rem 0.35rem;
+  border-radius: 3px;
+}
+.finding-rec {
+  margin-top: 0.85rem;
+  padding-top: 0.85rem;
+  border-top: 1px solid var(--kilo-border);
+  font-size: 0.88rem;
+  color: var(--kilo-text-light);
+  line-height: 1.65;
+}
+.finding-rec strong {
+  font-family: var(--font-space);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--kilo-accent);
+  display: inline-block;
+  margin-right: 0.4rem;
+}
+
+/* Tags */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.22rem 0.7rem;
+  border-radius: 100px;
+  font-family: var(--font-space);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.tag--accent { background: rgba(204,255,0,0.1); color: var(--kilo-accent); }
+.tag--pass { background: var(--pass-bg); color: var(--pass); }
+.tag--warn { background: var(--warn-bg); color: var(--warn); }
+.tag--fail { background: var(--fail-bg); color: var(--fail); }
+.tag--muted { background: rgba(255,255,255,0.05); color: var(--kilo-text-muted); }
+
+/* Table */
+.table-wrap { overflow-x: auto; border: 1px solid var(--kilo-border); border-radius: 6px; background: var(--kilo-card-bg); margin-bottom: 1.5rem; }
+table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+th {
+  text-align: left;
+  padding: 0.85rem 1rem;
+  font-family: var(--font-space);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--kilo-text-muted);
+  border-bottom: 1px solid var(--kilo-border);
+  white-space: nowrap;
+}
+td {
+  padding: 0.85rem 1rem;
+  border-bottom: 1px solid var(--kilo-border);
+  color: var(--kilo-text-light);
+  vertical-align: top;
+}
+tr:last-child td { border-bottom: none; }
+td.mono { font-family: 'SF Mono', 'Menlo', 'Monaco', 'Consolas', monospace; font-size: 0.8rem; color: var(--kilo-accent); white-space: nowrap; }
+td strong { color: var(--kilo-light); font-weight: 700; }
+
+/* Stats grid */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+.stat {
+  padding: 1.25rem 1rem;
+  background: var(--kilo-card-bg);
+  border: 1px solid var(--kilo-border);
+  border-radius: 6px;
+  text-align: center;
+}
+.stat-num {
+  font-family: var(--font-archivo);
+  font-size: 2rem;
+  font-weight: 900;
+  color: var(--kilo-light);
+  line-height: 1;
+  margin-bottom: 0.4rem;
+}
+.stat-num.pass { color: var(--pass); }
+.stat-num.warn { color: var(--warn); }
+.stat-num.fail { color: var(--fail); }
+.stat-num.accent { color: var(--kilo-accent); }
+.stat-lbl {
+  font-family: var(--font-space);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--kilo-text-muted);
+}
+
+/* Action item */
+.action {
+  display: flex;
+  gap: 1rem;
+  padding: 1.25rem;
+  background: var(--kilo-card-bg);
+  border: 1px solid var(--kilo-border);
+  border-radius: 6px;
+  margin-bottom: 1rem;
+  transition: border-color 0.2s, background 0.2s;
+}
+.action:hover { border-color: var(--kilo-border-accent); background: var(--kilo-card-bg-hover); }
+.action-num {
+  font-family: var(--font-archivo);
+  font-size: 1.6rem;
+  font-weight: 900;
+  color: var(--kilo-accent);
+  opacity: 0.55;
+  min-width: 2.5ch;
+  flex-shrink: 0;
+  line-height: 1;
+}
+.action-body { flex: 1; }
+.action-title {
+  font-family: var(--font-space);
+  font-weight: 600;
+  color: var(--kilo-light);
+  font-size: 0.95rem;
+  margin-bottom: 0.45rem;
+}
+.action-desc {
+  font-size: 0.88rem;
+  color: var(--kilo-text-muted);
+  line-height: 1.7;
+}
+.action-impact {
+  margin-top: 0.6rem;
+  font-family: var(--font-space);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--pass);
+}
+
+/* Opportunity grid (Gap → Play) */
+.opp-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  border: 1px solid var(--kilo-border);
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+.opp-grid > div { padding: 1.25rem; background: var(--kilo-card-bg); }
+.opp-gap { border-right: 1px solid var(--kilo-border); }
+.opp-play { background: rgba(204,255,0,0.03) !important; }
+.opp-label {
+  font-family: var(--font-space);
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+.opp-gap .opp-label { color: var(--fail); }
+.opp-play .opp-label { color: var(--kilo-accent); }
+.opp-body { font-size: 0.9rem; color: var(--kilo-text-light); line-height: 1.65; }
+
+/* Footer */
+.footer {
+  margin-top: 5rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--kilo-border);
+  text-align: center;
+  font-family: var(--font-space);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--kilo-text-muted);
+}
+.footer a { color: var(--kilo-accent); text-decoration: none; }
+
+/* Animations */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-in { opacity: 0; animation: fadeInUp 0.6s ease 0.1s forwards; }
+.delay-1 { animation-delay: 0.15s; }
+.delay-2 { animation-delay: 0.3s; }
+.delay-3 { animation-delay: 0.45s; }
+
+/* Responsive */
+@media (max-width: 640px) {
+  .wrap { padding: 2rem 1.25rem; }
+  .cover { padding: 2.5rem 0 2rem; }
+  .cover h1 { font-size: 2rem; }
+  .score-section { flex-direction: column; align-items: flex-start; gap: 2rem; }
+  .opp-grid { grid-template-columns: 1fr; }
+  .opp-gap { border-right: none; border-bottom: 1px solid var(--kilo-border); }
+  th, td { padding: 0.65rem 0.75rem; }
+  .score-text h2 { font-size: 1.3rem; }
+  .action { flex-direction: column; gap: 0.5rem; }
+  .action-num { font-size: 2rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<!-- COVER -->
+<section class="cover animate-in">
+  <div class="badge-top">Competitor Benchmark Audit</div>
+  <h1>HMC <em>Works</em></h1>
+  <p class="subtitle">Strategic SEO audit of the deepest SEO footprint in Johannesburg North roofing, conducted as competitive intelligence for the Cederhof Roofing website build.</p>
+  <div class="divider"></div>
+  <div class="meta">
+    23 April 2026<br>
+    Prepared for <strong>Cederhof Roofing</strong><br>
+    By <strong>Chad van der Walt</strong> / KILO Agency<br>
+    <a href="https://kiloagency.org">kiloagency.org</a>
+  </div>
+</section>
+
+<!-- SCORE -->
+<section class="score-section animate-in delay-1">
+  <div class="score-circle-wrap">
+    <div class="score-circle">
+      <span class="score-number">60</span>
+      <span class="score-grade">Grade C</span>
+      <span class="score-label">Overall Health</span>
+    </div>
+  </div>
+  <div class="score-text">
+    <h2>High content volume masking serious technical SEO neglect</h2>
+    <p>HMC Works has built a broad SEO footprint through sheer content volume — 100+ suburb pages, 2,100 to 5,000 words each, aggressive internal linking. But the foundation is missing. Zero meta descriptions site-wide, only 36% of pages have schema or Open Graph tags, 60% of images lack alt text, and 100+ templated suburb pages create keyword cannibalization risk. A disciplined new competitor can outrank them on any single high-value keyword inside 90 days.</p>
+  </div>
+</section>
+
+<!-- CATEGORY BARS -->
+<section class="bars animate-in delay-2">
+  <div class="bars-title">Category Breakdown</div>
+
+  <div class="bar">
+    <div class="bar-head">
+      <span class="bar-label">Technical SEO</span>
+      <span class="bar-value warn">63 / 100</span>
+    </div>
+    <div class="bar-track"><div class="bar-fill warn" style="width: 63%;"></div></div>
+  </div>
+
+  <div class="bar">
+    <div class="bar-head">
+      <span class="bar-label">Content</span>
+      <span class="bar-value warn">71 / 100</span>
+    </div>
+    <div class="bar-track"><div class="bar-fill warn" style="width: 71%;"></div></div>
+  </div>
+
+  <div class="bar">
+    <div class="bar-head">
+      <span class="bar-label">Architecture</span>
+      <span class="bar-value warn">67 / 100</span>
+    </div>
+    <div class="bar-track"><div class="bar-fill warn" style="width: 67%;"></div></div>
+  </div>
+
+  <div class="bar">
+    <div class="bar-head">
+      <span class="bar-label">Cross-Page Consistency</span>
+      <span class="bar-value fail">50 / 100</span>
+    </div>
+    <div class="bar-track"><div class="bar-fill fail" style="width: 50%;"></div></div>
+  </div>
+
+  <div class="bar">
+    <div class="bar-head">
+      <span class="bar-label">Social &amp; Schema</span>
+      <span class="bar-value fail">35 / 100</span>
+    </div>
+    <div class="bar-track"><div class="bar-fill fail" style="width: 35%;"></div></div>
+  </div>
+</section>
+
+<!-- TOC -->
+<section class="toc animate-in delay-3">
+  <div class="toc-title">Contents</div>
+  <ol>
+    <li><span class="num">01</span><a href="#s1">Audit Overview</a><span class="arrow">→</span></li>
+    <li><span class="num">02</span><a href="#s2">Scoring Methodology</a><span class="arrow">→</span></li>
+    <li><span class="num">03</span><a href="#s3">Site-Wide Critical Findings</a><span class="arrow">→</span></li>
+    <li><span class="num">04</span><a href="#s4">Page-by-Page Breakdown</a><span class="arrow">→</span></li>
+    <li><span class="num">05</span><a href="#s5">Cannibalization &amp; Templated Pages</a><span class="arrow">→</span></li>
+    <li><span class="num">06</span><a href="#s6">Keyword Map</a><span class="arrow">→</span></li>
+    <li><span class="num">07</span><a href="#s7">Cederhof Strategic Opportunity</a><span class="arrow">→</span></li>
+    <li><span class="num">08</span><a href="#s8">Recommended Action Plan</a><span class="arrow">→</span></li>
+  </ol>
+</section>
+
+<!-- SECTION 01 -->
+<section class="section" id="s1">
+  <div class="section-number">01</div>
+  <h3 class="section-title">Audit Overview</h3>
+  <p class="section-intro">Site-wide SEO audit of hmcworks.co.za conducted on 23 April 2026. HMC Works was selected as the benchmark target because it has the deepest SEO footprint of the five competitors analysed: widest service catalogue, largest suburb-page network, highest average word count. If Cederhof's design clears this bar, it clears the entire local competitive set.</p>
+
+  <div class="stats">
+    <div class="stat">
+      <div class="stat-num">11</div>
+      <div class="stat-lbl">Pages Audited</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">150+</div>
+      <div class="stat-lbl">Total Site URLs</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">~3,000</div>
+      <div class="stat-lbl">Avg Words / Page</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num accent">100+</div>
+      <div class="stat-lbl">Templated Suburb Pages</div>
+    </div>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Attribute</th><th>Value</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Platform</td><td>WordPress + Yoast SEO</td></tr>
+        <tr><td>HTTPS</td><td><span class="tag tag--pass">Yes</span></td></tr>
+        <tr><td>robots.txt</td><td><span class="tag tag--pass">Valid, permissive, sitemap-linked</span></td></tr>
+        <tr><td>sitemap.xml</td><td><span class="tag tag--pass">Index, 5 sub-sitemaps, Apr 2026 lastmod</span></td></tr>
+        <tr><td>Competitors referenced</td><td>peche.co.za, sandownroofing.co.za, 724roofing.co.za, theroofco.co.za, hmcworks.co.za</td></tr>
+        <tr><td>Target market</td><td>Johannesburg North residential roofing</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- SECTION 02 -->
+<section class="section" id="s2">
+  <div class="section-number">02</div>
+  <h3 class="section-title">Scoring Methodology</h3>
+  <p class="section-intro">Five weighted categories, each scored 0-100 against documented SEO best practices. Weights reflect impact on organic ranking for a SA local-services site. Overall score is the weighted average, graded on a standard scale: A+ 90+, A 80-89, B 70-79, C 60-69, D 50-59, F below 50.</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Category</th>
+          <th>Weight</th>
+          <th>Score</th>
+          <th>Grade</th>
+          <th>What It Measures</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Technical SEO</td><td>25%</td><td><strong>63</strong></td>
+          <td><span class="tag tag--warn">C</span></td>
+          <td>HTTPS, viewport, canonicals, schema coverage, security headers, image optimisation</td>
+        </tr>
+        <tr>
+          <td>Content</td><td>25%</td><td><strong>71</strong></td>
+          <td><span class="tag tag--warn">B</span></td>
+          <td>Word count, meta descriptions, headings, alt text, duplicate content</td>
+        </tr>
+        <tr>
+          <td>Architecture</td><td>20%</td><td><strong>67</strong></td>
+          <td><span class="tag tag--warn">C</span></td>
+          <td>URL structure, click depth, internal linking, breadcrumbs, directory logic</td>
+        </tr>
+        <tr>
+          <td>Cross-Page Consistency</td><td>15%</td><td><strong>50</strong></td>
+          <td><span class="tag tag--fail">D</span></td>
+          <td>Duplicate titles, cannibalization, NAP consistency, branding</td>
+        </tr>
+        <tr>
+          <td>Social &amp; Schema</td><td>15%</td><td><strong>35</strong></td>
+          <td><span class="tag tag--fail">F</span></td>
+          <td>OG tags, Twitter Cards, JSON-LD schema coverage, favicon</td>
+        </tr>
+        <tr>
+          <td><strong>Overall</strong></td><td><strong>100%</strong></td><td><strong>60</strong></td>
+          <td><span class="tag tag--warn">C</span></td>
+          <td>Weighted average</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- SECTION 03 -->
+<section class="section" id="s3">
+  <div class="section-number">03</div>
+  <h3 class="section-title">Site-Wide Critical Findings</h3>
+  <p class="section-intro">Every major issue identified across the 11 pages audited, ranked by severity. These are the exact gaps Cederhof can exploit to outrank the benchmark.</p>
+
+  <div class="finding fail">
+    <div class="finding-head">
+      <div class="finding-title">01 — Zero meta descriptions site-wide</div>
+      <span class="tag tag--fail">Critical</span>
+    </div>
+    <div class="finding-desc">None of the 11 audited pages has a <code>meta name="description"</code> tag. On a 150-page site that means Google auto-generates every SERP snippet from the first paragraph of body copy — lost click-through-rate control on every keyword HMC ranks for.</div>
+    <div class="finding-rec"><strong>Cederhof play:</strong> Unique 150-160 character meta descriptions on every page. Primary keyword + service area + CTA phrase. Instant advantage across the entire site.</div>
+  </div>
+
+  <div class="finding fail">
+    <div class="finding-head">
+      <div class="finding-title">02 — NAP inconsistency: /gallery-2/ shows wrong phone number</div>
+      <span class="tag tag--fail">Critical</span>
+    </div>
+    <div class="finding-desc">The gallery page title shows phone 072 184 3432. Every other page uses 010 502-0627. Google's Name/Address/Phone (NAP) signal is a primary local-SEO ranking factor. A phone mismatch between site pages, and between site and Google Business Profile, actively damages local-pack rankings.</div>
+    <div class="finding-rec"><strong>Cederhof play:</strong> Single canonical phone hardcoded in one Astro include — footer, header, schema, meta. Zero divergence. Matches GBP exactly.</div>
+  </div>
+
+  <div class="finding fail">
+    <div class="finding-head">
+      <div class="finding-title">03 — 100+ templated suburb pages create duplicate-content risk</div>
+      <span class="tag tag--fail">High</span>
+    </div>
+    <div class="finding-desc">Suburb pages (e.g. /roof-repairs-kempton-park/, /painting-contractors-bedfordview/) share structural patterns with only the suburb name swapped. Near-duplicate content competing for overlapping intent. Google's Helpful Content and Panda systems flag this pattern as low-value programmatic SEO.</div>
+    <div class="finding-rec"><strong>Cederhof play:</strong> 8 to 10 deep unique suburb pages, each referencing real property types in that area, local architectural character, real completed projects nearby. Quality over HMC's quantity.</div>
+  </div>
+
+  <div class="finding fail">
+    <div class="finding-head">
+      <div class="finding-title">04 — JSON-LD schema coverage at 36%</div>
+      <span class="tag tag--fail">High</span>
+    </div>
+    <div class="finding-desc">Only 4 of 11 pages have any structured data. Zero pages have FAQPage, Review, or BreadcrumbList schema. Rich results in SERPs (star ratings, breadcrumbs, FAQ expansions) are entirely absent from HMC's search presence.</div>
+    <div class="finding-rec"><strong>Cederhof play:</strong> LocalBusiness + Service + Review + FAQPage + BreadcrumbList JSON-LD on every page. Every FAQ block on every service page gets FAQPage markup.</div>
+  </div>
+
+  <div class="finding fail">
+    <div class="finding-head">
+      <div class="finding-title">05 — Open Graph / Twitter Cards: 36% / 0%</div>
+      <span class="tag tag--fail">High</span>
+    </div>
+    <div class="finding-desc">Four pages have Open Graph tags, none have Twitter Cards. When a Joburg homeowner shares an HMC page on WhatsApp (the primary SA sharing channel), the preview is ugly or blank. A branded og:image is the most under-valued social-SEO asset in SA local services.</div>
+    <div class="finding-rec"><strong>Cederhof play:</strong> Complete OG + Twitter Card on every page. Branded 1200×630 og:image per service. Instantly more shareable than any competitor in the set.</div>
+  </div>
+
+  <div class="finding fail">
+    <div class="finding-head">
+      <div class="finding-title">06 — Image alt text averages 40%, drops to 14% on gallery</div>
+      <span class="tag tag--fail">High</span>
+    </div>
+    <div class="finding-desc">Alt coverage ranges from 14% on /gallery-2/ (180+ images, 25 with alt) to 75% on /complete-roof-restorations/. Roofing is visually led — Google Image Search drives meaningful lead flow in this category. Missing alt hurts both accessibility and image rankings. The gallery is the single biggest wasted ranking opportunity on the site.</div>
+    <div class="finding-rec"><strong>Cederhof play:</strong> 100% descriptive alt text, keyword-natural. Gallery captions embed property type + suburb + material. "Slate roof replacement on Cape-Dutch home, Dainfern" ranks for three queries at once.</div>
+  </div>
+
+  <div class="finding warn">
+    <div class="finding-head">
+      <div class="finding-title">07 — Canonical tags missing on 64% of pages</div>
+      <span class="tag tag--warn">Medium</span>
+    </div>
+    <div class="finding-desc">Only 4 of 11 audited pages have a rel="canonical" tag. Combined with the 100+ templated suburb pages, this leaves the site vulnerable to duplicate-content interpretation by Google. Canonicals are a free hygiene signal.</div>
+    <div class="finding-rec"><strong>Cederhof play:</strong> Self-referencing canonical on every page. One line in the Astro SEOHead component.</div>
+  </div>
+
+  <div class="finding warn">
+    <div class="finding-head">
+      <div class="finding-title">08 — Typo in homepage H2: "peope" instead of "people"</div>
+      <span class="tag tag--warn">Medium</span>
+    </div>
+    <div class="finding-desc">"Why more peope choose HMC Works" appears as an H2 on the homepage. Small but corrosive trust signal on a services site where craft and attention to detail are the product. A visitor who sees a typo on the homepage starts expecting typos in the contract.</div>
+    <div class="finding-rec"><strong>Cederhof play:</strong> Copy is a craft surface. Zero typos, zero awkward phrasing. All content passes grammar review before deploy.</div>
+  </div>
+
+  <div class="finding warn">
+    <div class="finding-head">
+      <div class="finding-title">09 — Brand name capitalisation inconsistent</div>
+      <span class="tag tag--warn">Medium</span>
+    </div>
+    <div class="finding-desc">Titles and H1s alternate between "HMC WORKS", "HMC works", and "HMC Works". Looks careless in the SERP and confuses automated brand extraction.</div>
+    <div class="finding-rec"><strong>Cederhof play:</strong> One brand string, one case style, applied site-wide via central config.</div>
+  </div>
+
+  <div class="finding warn">
+    <div class="finding-head">
+      <div class="finding-title">10 — No breadcrumb markup or navigation</div>
+      <span class="tag tag--warn">Medium</span>
+    </div>
+    <div class="finding-desc">Neither visual breadcrumbs nor BreadcrumbList JSON-LD are present. Google uses breadcrumb schema to display path information in SERPs and to understand site hierarchy — on a 150-page site this is a large lost orientation signal.</div>
+    <div class="finding-rec"><strong>Cederhof play:</strong> Visual breadcrumbs on every non-home page, plus full BreadcrumbList schema.</div>
+  </div>
+
+  <div class="finding warn">
+    <div class="finding-head">
+      <div class="finding-title">11 — Title under-utilisation on some pages</div>
+      <span class="tag tag--warn">Low</span>
+    </div>
+    <div class="finding-desc">/roof-painting/ uses a 44-character title — 16 characters of SERP real estate left on the table. Title tags remain among the highest-leverage single ranking factors; every character should be earning.</div>
+    <div class="finding-rec"><strong>Cederhof play:</strong> Every title targets 55-60 characters. Primary keyword leading, brand at the tail.</div>
+  </div>
+
+  <div class="finding warn">
+    <div class="finding-head">
+      <div class="finding-title">12 — No modern image formats or lazy loading</div>
+      <span class="tag tag--warn">Medium</span>
+    </div>
+    <div class="finding-desc">Site serves JPG/PNG only, no evidence of loading="lazy" or responsive srcset. On SA mobile data at R149-299/GB, page weight is a direct conversion cost. Core Web Vitals LCP and CLS will both underperform.</div>
+    <div class="finding-rec"><strong>Cederhof play:</strong> Astro Image component auto-converts to WebP, generates srcset, lazy-loads below the fold. Hero images under 80KB.</div>
+  </div>
+</section>
+
+<!-- SECTION 04 -->
+<section class="section" id="s4">
+  <div class="section-number">04</div>
+  <h3 class="section-title">Page-by-Page Breakdown</h3>
+  <p class="section-intro">Every audited page scored against the core checklist. Each row shows title length, presence of meta description, schema, Open Graph, alt-text coverage, and body word count.</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Page</th>
+          <th>Title (chars)</th>
+          <th>Meta Desc</th>
+          <th>Schema</th>
+          <th>OG</th>
+          <th>Alt %</th>
+          <th>Words</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td class="mono">/</td><td>47</td><td><span class="tag tag--fail">Fail</span></td><td><span class="tag tag--fail">No</span></td><td><span class="tag tag--fail">No</span></td><td>20%</td><td>2,100</td></tr>
+        <tr><td class="mono">/roofing-contractors/</td><td>57</td><td><span class="tag tag--fail">Fail</span></td><td><span class="tag tag--fail">No</span></td><td><span class="tag tag--fail">No</span></td><td>66%</td><td>3,500</td></tr>
+        <tr><td class="mono">/waterproofing/</td><td>51</td><td><span class="tag tag--fail">Fail</span></td><td><span class="tag tag--fail">No</span></td><td><span class="tag tag--fail">No</span></td><td>73%</td><td>2,100</td></tr>
+        <tr><td class="mono">/complete-roof-restorations/</td><td>62</td><td><span class="tag tag--fail">Fail</span></td><td><span class="tag tag--pass">Yes</span></td><td><span class="tag tag--pass">Yes</span></td><td>75%</td><td>4,500</td></tr>
+        <tr><td class="mono">/concrete-roof-repairs/</td><td>50</td><td><span class="tag tag--fail">Fail</span></td><td><span class="tag tag--fail">No</span></td><td><span class="tag tag--fail">No</span></td><td>15%</td><td>2,800</td></tr>
+        <tr><td class="mono">/roof-repairs-kempton-park/</td><td>57</td><td><span class="tag tag--fail">Fail</span></td><td><span class="tag tag--pass">Yes</span></td><td><span class="tag tag--pass">Yes</span></td><td>50%</td><td>5,000</td></tr>
+        <tr><td class="mono">/painting-contractors/</td><td>58</td><td><span class="tag tag--fail">Fail</span></td><td><span class="tag tag--pass">Yes</span></td><td><span class="tag tag--pass">Yes</span></td><td>56%</td><td>3,500</td></tr>
+        <tr><td class="mono">/blog/</td><td>56</td><td><span class="tag tag--fail">Fail</span></td><td><span class="tag tag--fail">No</span></td><td><span class="tag tag--fail">No</span></td><td>N/A</td><td>1,500</td></tr>
+        <tr><td class="mono">/gallery-2/</td><td>54</td><td><span class="tag tag--fail">Fail</span></td><td><span class="tag tag--fail">No</span></td><td><span class="tag tag--fail">No</span></td><td>14%</td><td>1,000</td></tr>
+        <tr><td class="mono">/roof-painting/</td><td>44</td><td><span class="tag tag--fail">Fail</span></td><td><span class="tag tag--pass">Yes</span></td><td><span class="tag tag--pass">Yes</span></td><td>69%</td><td>3,800</td></tr>
+        <tr><td class="mono">/facility-maintenance-contractors/</td><td>N/A</td><td><span class="tag tag--fail">Fail</span></td><td><span class="tag tag--fail">No</span></td><td><span class="tag tag--fail">No</span></td><td>N/A</td><td>3,000</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- SECTION 05 -->
+<section class="section" id="s5">
+  <div class="section-number">05</div>
+  <h3 class="section-title">Cannibalization &amp; Templated Pages</h3>
+  <p class="section-intro">The single most damaging strategic issue on the site. Over 100 suburb landing pages share an identical template with only the suburb name swapped.</p>
+
+  <div class="finding fail">
+    <div class="finding-head">
+      <div class="finding-title">Cluster A — "roof repairs [suburb]"</div>
+      <span class="tag tag--fail">High risk</span>
+    </div>
+    <div class="finding-desc">/roof-repairs-kempton-park/, /roof-repairs-boksburg/, /roof-repairs-benoni/, /roof-repairs-bedfordview/, /roof-repairs-centurion/, /roof-repairs-edenvale/, plus ~20 others — all use identical service descriptions, team structures, supplier logos, and portfolio placeholder text. Only the suburb name, a few area-specific sentences, and the H1/title change.</div>
+    <div class="finding-rec"><strong>Cederhof play:</strong> Fewer pages, genuinely unique. Each suburb page references real completed projects in that area, local architectural style notes, real testimonials from residents of that suburb.</div>
+  </div>
+
+  <div class="finding fail">
+    <div class="finding-head">
+      <div class="finding-title">Cluster B — "painting contractors [suburb]"</div>
+      <span class="tag tag--fail">High risk</span>
+    </div>
+    <div class="finding-desc">Same pattern on the painting side. /painting-contractors-bedfordview/, /painting-contractors-benoni/, /painting-contractors-boksburg/ and ~25 others. Google's Helpful Content and Panda systems both flag this pattern as low-value programmatic SEO.</div>
+    <div class="finding-rec"><strong>Cederhof play:</strong> Services and suburbs are two separate page types. Service pages go deep on the work. Suburb pages link to service pages. Each is independently valuable.</div>
+  </div>
+</section>
+
+<!-- SECTION 06 -->
+<section class="section" id="s6">
+  <div class="section-number">06</div>
+  <h3 class="section-title">Keyword Map</h3>
+  <p class="section-intro">Inferred target keyword per page, based on title, H1, and first 150 words of body copy. Cannibalization risk flags where multiple pages compete for overlapping intent.</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Page</th>
+          <th>Inferred Target Keyword</th>
+          <th>KW in Title</th>
+          <th>KW in H1</th>
+          <th>Cannib. Risk</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td class="mono">/</td><td>roofing company Sandton</td><td><span class="tag tag--pass">Yes</span></td><td><span class="tag tag--fail">No</span></td><td><span class="tag tag--pass">Low</span></td></tr>
+        <tr><td class="mono">/roofing-contractors/</td><td>roofing contractors Johannesburg</td><td><span class="tag tag--pass">Yes</span></td><td><span class="tag tag--fail">Mismatch</span></td><td><span class="tag tag--fail">High</span></td></tr>
+        <tr><td class="mono">/waterproofing/</td><td>waterproofing contractors</td><td><span class="tag tag--pass">Yes</span></td><td><span class="tag tag--pass">Yes</span></td><td><span class="tag tag--warn">Medium</span></td></tr>
+        <tr><td class="mono">/complete-roof-restorations/</td><td>complete roof restorations</td><td><span class="tag tag--pass">Yes</span></td><td><span class="tag tag--pass">Yes</span></td><td><span class="tag tag--pass">Low</span></td></tr>
+        <tr><td class="mono">/concrete-roof-repairs/</td><td>concrete roof repairs</td><td><span class="tag tag--pass">Yes</span></td><td><span class="tag tag--pass">Yes</span></td><td><span class="tag tag--warn">Medium</span></td></tr>
+        <tr><td class="mono">/roof-repairs-kempton-park/</td><td>roof repairs Kempton Park</td><td><span class="tag tag--pass">Yes</span></td><td><span class="tag tag--pass">Yes</span></td><td><span class="tag tag--fail">High</span></td></tr>
+        <tr><td class="mono">/painting-contractors/</td><td>painting contractors Sandton</td><td><span class="tag tag--pass">Yes</span></td><td><span class="tag tag--warn">Ambiguous</span></td><td><span class="tag tag--fail">High</span></td></tr>
+        <tr><td class="mono">/roof-painting/</td><td>roof painting</td><td><span class="tag tag--pass">Yes</span></td><td><span class="tag tag--pass">Yes</span></td><td><span class="tag tag--warn">Medium</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- SECTION 07 -->
+<section class="section" id="s7">
+  <div class="section-number">07</div>
+  <h3 class="section-title">Cederhof Strategic Opportunity</h3>
+  <p class="section-intro">Each gap identified in HMC's audit maps to a specific Cederhof play. These become design requirements for the new build — not optional optimisations.</p>
+
+  <div class="opp-grid">
+    <div class="opp-gap">
+      <div class="opp-label">HMC Gap</div>
+      <div class="opp-body">Zero meta descriptions across 150+ pages. Google auto-generates SERP snippets from the first paragraph of body copy on every page.</div>
+    </div>
+    <div class="opp-play">
+      <div class="opp-label">Cederhof Play</div>
+      <div class="opp-body">Unique 150-160 character meta description on every page. Primary keyword + service area + CTA phrase. Owns SERP snippet real estate for every keyword HMC currently ranks.</div>
+    </div>
+  </div>
+
+  <div class="opp-grid">
+    <div class="opp-gap">
+      <div class="opp-label">HMC Gap</div>
+      <div class="opp-body">Schema on 36% of pages. No FAQPage, no Review, no BreadcrumbList anywhere on the site.</div>
+    </div>
+    <div class="opp-play">
+      <div class="opp-label">Cederhof Play</div>
+      <div class="opp-body">LocalBusiness + Service + Review + FAQPage + BreadcrumbList JSON-LD on every page. Rich SERP results — stars, breadcrumbs, FAQ expansions — on every ranked keyword.</div>
+    </div>
+  </div>
+
+  <div class="opp-grid">
+    <div class="opp-gap">
+      <div class="opp-label">HMC Gap</div>
+      <div class="opp-body">100+ templated near-duplicate suburb pages competing for overlapping intent.</div>
+    </div>
+    <div class="opp-play">
+      <div class="opp-label">Cederhof Play</div>
+      <div class="opp-body">8 to 10 deep unique suburb pages. Each references real property types in the area, local architecture, real completed projects nearby. Quality over HMC's quantity.</div>
+    </div>
+  </div>
+
+  <div class="opp-grid">
+    <div class="opp-gap">
+      <div class="opp-label">HMC Gap</div>
+      <div class="opp-body">Phone NAP inconsistency: /gallery-2/ uses a different number to the rest of the site. Damages local-pack ranking signal.</div>
+    </div>
+    <div class="opp-play">
+      <div class="opp-label">Cederhof Play</div>
+      <div class="opp-body">Single canonical phone number in footer, header, schema, meta — hardcoded in one Astro include. Matches Google Business Profile exactly.</div>
+    </div>
+  </div>
+
+  <div class="opp-grid">
+    <div class="opp-gap">
+      <div class="opp-label">HMC Gap</div>
+      <div class="opp-body">Gallery of 180+ images with 14% alt text coverage. Roofing is visually led — a massive image-SEO opportunity wasted.</div>
+    </div>
+    <div class="opp-play">
+      <div class="opp-label">Cederhof Play</div>
+      <div class="opp-body">100% descriptive alt text. Gallery captions embed property type + suburb + material. "Slate roof replacement, Cape-Dutch home, Dainfern" ranks on three queries at once.</div>
+    </div>
+  </div>
+
+  <div class="opp-grid">
+    <div class="opp-gap">
+      <div class="opp-label">HMC Gap</div>
+      <div class="opp-body">JPG/PNG only. No lazy loading. On SA mobile data at R149-299/GB, page weight is a direct conversion cost. Core Web Vitals underperform.</div>
+    </div>
+    <div class="opp-play">
+      <div class="opp-label">Cederhof Play</div>
+      <div class="opp-body">Astro Image auto-WebP, responsive srcset, below-fold lazy-load. Hero under 80KB, total page weight under 300KB. Lighthouse 90+ across all four metrics.</div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 08 -->
+<section class="section" id="s8">
+  <div class="section-number">08</div>
+  <h3 class="section-title">Recommended Action Plan for Cederhof</h3>
+  <p class="section-intro">Six priorities in execution order. These become Phase 0.5 and Phase 2 requirements for the Cederhof build — they do not belong in a "later" list.</p>
+
+  <div class="action">
+    <div class="action-num">01</div>
+    <div class="action-body">
+      <div class="action-title">Ship meta descriptions on every page — immediately</div>
+      <div class="action-desc">Unique, 150-160 chars, primary keyword + service area + CTA. Template-driven from the brief's keyword map so every page gets one. HMC has 0%, Cederhof ships 100%.</div>
+      <div class="action-impact">Impact: Full SERP snippet control site-wide. Est. 15-30% CTR uplift on ranked keywords.</div>
+    </div>
+  </div>
+
+  <div class="action">
+    <div class="action-num">02</div>
+    <div class="action-body">
+      <div class="action-title">Full schema stack on every page</div>
+      <div class="action-desc">LocalBusiness + Service + Review + FAQPage + BreadcrumbList. Built into the Astro SEOHead component. Every FAQ block auto-wraps in FAQPage markup.</div>
+      <div class="action-impact">Impact: Rich SERP results (stars, breadcrumbs, FAQ expansions) on every indexed page.</div>
+    </div>
+  </div>
+
+  <div class="action">
+    <div class="action-num">03</div>
+    <div class="action-body">
+      <div class="action-title">Deep unique suburb pages — 8 not 100</div>
+      <div class="action-desc">Dainfern, Sandton, Bryanston, Hyde Park, Fourways, Rivonia, Hurlingham, Parkhurst. Each page 1,200+ words of genuinely unique content. Real completed projects in that suburb. Local architectural context. Zero template duplication.</div>
+      <div class="action-impact">Impact: Premium residential positioning + ranks for "[service] [suburb]" across 8 high-value Joburg North searches.</div>
+    </div>
+  </div>
+
+  <div class="action">
+    <div class="action-num">04</div>
+    <div class="action-body">
+      <div class="action-title">Complete social card stack</div>
+      <div class="action-desc">Open Graph + Twitter Card on every page. Branded 1200×630 og:image per service. When a Dainfern homeowner shares a Cederhof page on WhatsApp, the preview is branded and premium.</div>
+      <div class="action-impact">Impact: Beats every competitor's social-share quality from day one.</div>
+    </div>
+  </div>
+
+  <div class="action">
+    <div class="action-num">05</div>
+    <div class="action-body">
+      <div class="action-title">Perfect alt text + WebP images</div>
+      <div class="action-desc">100% alt coverage with descriptive, keyword-natural captions. All images via Astro Image auto-WebP. Gallery captions embed property type + suburb + material for three-query ranking on each image.</div>
+      <div class="action-impact">Impact: Image Search traffic, accessibility compliance, Lighthouse 90+.</div>
+    </div>
+  </div>
+
+  <div class="action">
+    <div class="action-num">06</div>
+    <div class="action-body">
+      <div class="action-title">NAP lock + brand consistency + typo-free copy</div>
+      <div class="action-desc">Single canonical phone number in one include file. Single brand string with single case style applied site-wide. Copy passes grammar review before every deploy.</div>
+      <div class="action-impact">Impact: Clean local-SEO signal to Google, consistent SERP presentation, zero trust-eroding typos.</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  KILO Agency / <a href="https://kiloagency.org">kiloagency.org</a> / Confidential — prepared for Cederhof Roofing
+</footer>
+
+</div>
+</body>
+</html>

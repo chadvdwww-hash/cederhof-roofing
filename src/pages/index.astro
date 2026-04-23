@@ -1,0 +1,611 @@
+---
+import { Image, getImage } from "astro:assets";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Counter from "../components/Counter.tsx";
+import ServiceCard from "../components/ServiceCard.astro";
+import TestimonialCarousel from "../components/TestimonialCarousel.astro";
+import FAQ from "../components/FAQ.astro";
+import SuburbMap from "../components/SuburbMap.astro";
+import HeroForm from "../components/HeroForm.tsx";
+import ProcessScrollScene from "../components/ProcessScrollScene.tsx";
+import { business, whatsappHref, telHref } from "../data/business";
+import { services } from "../data/services";
+import { areas } from "../data/areas";
+import { homeFaqs } from "../data/faqs";
+import heroImg from "../assets/images/stock/golden-hour-modern-house-1.jpg";
+import featuredImg from "../assets/images/stock/slate-tile-roof-1.jpg";
+import portfolio1 from "../assets/images/stock/slate-tile-roof-2.jpg";
+import portfolio2 from "../assets/images/stock/clay-tile-roof-1.jpg";
+import portfolio3 from "../assets/images/stock/luxury-home-exterior-1.jpg";
+import portfolio4 from "../assets/images/stock/slate-tile-roof-3.jpg";
+import portfolio5 from "../assets/images/stock/clay-tile-roof-2.jpg";
+import portfolio6 from "../assets/images/stock/golden-hour-modern-house-2.jpg";
+import portfolio7 from "../assets/images/stock/luxury-home-exterior-2.jpg";
+import portfolio8 from "../assets/images/stock/roof-installation-worker-1.jpg";
+import processExecuteImg from "../assets/images/stock/roof-installation-worker-2.jpg";
+
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "RoofingContractor",
+  name: business.name,
+  description:
+    "Premium residential roofing specialist for Johannesburg North. Slate, clay tile, concrete tile, full re-roofing, and waterproofing. MBSA member since 2011.",
+  url: business.siteUrl,
+  telephone: business.phoneE164,
+  email: business.email,
+  priceRange: business.priceRange,
+  image: `${business.siteUrl}/og-default.jpg`,
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: business.address.line1,
+    addressLocality: business.address.city,
+    addressRegion: business.address.region,
+    postalCode: business.address.postalCode,
+    addressCountry: business.address.country,
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: business.address.lat,
+    longitude: business.address.lng,
+  },
+  openingHoursSpecification: business.hours
+    .filter((h) => !h.closed)
+    .map((h) => ({
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: h.day,
+      opens: h.open,
+      closes: h.close,
+    })),
+  areaServed: areas.map((a) => a.name),
+  foundingDate: `${business.established}-01-01`,
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: homeFaqs.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+};
+
+const portfolioImages = [portfolio1, portfolio2, portfolio3, portfolio4, portfolio5, portfolio6, portfolio7, portfolio8];
+
+const portfolioMeta = [
+  { type: "Slate re-roof", area: "Hyde Park", year: "Feb 2026" },
+  { type: "Clay tile re-roof", area: "Bryanston", year: "Jan 2026" },
+  { type: "Full re-roof", area: "Dainfern", year: "Dec 2025" },
+  { type: "Slate extension", area: "Sandton", year: "Nov 2025" },
+  { type: "Clay tile repair", area: "Parkhurst", year: "Oct 2025" },
+  { type: "Concrete tile re-roof", area: "Fourways", year: "Sep 2025" },
+  { type: "Modernist slab waterproofing", area: "Sandton", year: "Aug 2025" },
+  { type: "Double-storey re-roof", area: "Hurlingham", year: "Jul 2025" },
+];
+
+const processSteps = [
+  {
+    n: "01",
+    title: "Assessment",
+    body: "Free on-site survey within 48 hours. We look at the whole roof, not just the problem section. Pitch, span, timber condition, flashing, drainage, everything goes into the scope.",
+  },
+  {
+    n: "02",
+    title: "Written quote",
+    body: "Itemised fixed-price quote in writing. Materials, labour, timber work, flashing, scaffolding, all priced separately so nothing is hidden. No day-rate variations mid-project.",
+  },
+  {
+    n: "03",
+    title: "Schedule",
+    body: "Booked start date in writing. Weather dependent, we do not start in a storm and we do not promise a date we cannot keep. Larger projects staged so your home is weather-tight every evening.",
+  },
+  {
+    n: "04",
+    title: "Execute",
+    body: "Daily on-site supervision by the project lead. Scaffolded safety, boarded gardens, swept driveways. Tradesmen who have been with Cederhof five years or more.",
+  },
+  {
+    n: "05",
+    title: "Sign-off",
+    body: "Walk-through inspection with you. Guarantee certificate issued. Post-install follow-up at 6 and 12 months. If something moves, we come back.",
+  },
+];
+
+const processImageSources = [
+  {
+    src: portfolio8,
+    alt: "Cederhof project lead surveying a Joburg North residential roof before quoting",
+  },
+  {
+    src: portfolio3,
+    alt: "Premium residential Johannesburg North home ready for a written quote",
+  },
+  {
+    src: portfolio2,
+    alt: "Clay roof tiles prepared and staged for a Cederhof re-roof installation",
+  },
+  {
+    src: processExecuteImg,
+    alt: "Cederhof tradesman installing tile on a Johannesburg North residential roof",
+  },
+  {
+    src: heroImg,
+    alt: "A finished Cederhof roof at golden hour on a premium Joburg North home",
+  },
+];
+
+const processImages = await Promise.all(
+  processImageSources.map(async (entry) => {
+    const optimised = await getImage({
+      src: entry.src,
+      width: 1920,
+      quality: 85,
+      format: "webp",
+    });
+    return { src: optimised.src, alt: entry.alt };
+  })
+);
+---
+
+<BaseLayout
+  title="Premium Roofing Contractor Johannesburg North | Cederhof Roofing"
+  description="Cederhof Roofing, premium residential roofing in Dainfern, Sandton, Bryanston. Slate, clay tile, re-roofing. MBSA member. Free quote."
+  schema={[localBusinessSchema, faqSchema]}
+>
+  <div class="scroll-progress" aria-hidden="true"></div>
+
+  <!-- SECTION 1, Hero -->
+  <section class="relative min-h-[100dvh] overflow-hidden bg-primary-dark">
+    <div class="absolute inset-0">
+      <Image
+        src={heroImg}
+        alt="Golden-hour view across a premium residential property in Johannesburg North with a carefully finished roof line"
+        widths={[768, 1280, 1920, 2560]}
+        sizes="100vw"
+        quality={84}
+        loading="eager"
+        fetchpriority="high"
+        class="parallax-up h-full w-full object-cover"
+      />
+    </div>
+    <div
+      class="absolute inset-0 bg-gradient-to-r from-primary-dark via-primary-dark/80 to-primary-dark/25"
+      aria-hidden="true"
+    ></div>
+    <div
+      class="absolute inset-0 bg-gradient-to-t from-primary-dark/70 via-transparent to-transparent"
+      aria-hidden="true"
+    ></div>
+
+    <div class="relative mx-auto grid min-h-[100dvh] max-w-[1280px] items-end gap-12 px-6 pb-16 pt-24 lg:grid-cols-[1.25fr_1fr] lg:items-center lg:gap-16 lg:px-10 lg:pb-24 lg:pt-32">
+      <div class="hero-heading max-w-[640px]">
+        <span class="mb-6 inline-flex items-center gap-2 rounded-full border border-accent/40 bg-on-dark/5 px-4 py-1.5 text-[0.7rem] font-semibold uppercase tracking-[0.22em] text-on-dark backdrop-blur">
+          <span class="h-1.5 w-1.5 rounded-full bg-accent"></span>
+          MBSA Member · Est. {business.established} · Joburg North
+        </span>
+        <h1 class="font-heading font-black uppercase text-on-dark" style="font-size: clamp(2.4rem, 4vw, 3.75rem); line-height: 1.02; letter-spacing: -0.025em;">
+          Roofs <span class="text-accent">finished by hand,</span> built to outlast the home beneath them.
+        </h1>
+        <p class="mt-7 max-w-[56ch] text-lg leading-[1.7] text-on-dark/80 md:text-[1.2rem]">
+          Slate, clay tile, concrete tile, and full re-roofing for heritage and estate homes across Dainfern, Sandton, Bryanston, and Hyde Park.
+        </p>
+        <p class="mt-4 max-w-[56ch] text-base leading-[1.7] text-on-dark/65 md:text-lg">
+          Seventeen years of craft. A ten-year workmanship guarantee. A written, itemised quote inside forty-eight hours, delivered to your door by the tradesman who will run the job.
+        </p>
+        <div class="mt-10 flex flex-wrap items-center gap-3">
+          <a
+            href="#quote"
+            class="inline-flex items-center gap-2 rounded-md bg-accent px-6 py-4 font-heading text-sm font-bold uppercase tracking-[0.08em] text-on-primary no-underline transition-all duration-200 hover:bg-accent-hover active:scale-[0.98]"
+          >
+            Get a free quote
+            <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M5 12H19M13 6L19 12L13 18" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none" /></svg>
+          </a>
+          <a
+            href={whatsappHref()}
+            rel="noopener"
+            class="inline-flex items-center gap-2 rounded-md border border-on-dark/30 bg-on-dark/5 px-6 py-4 font-heading text-sm font-bold uppercase tracking-[0.08em] text-on-dark no-underline backdrop-blur transition-all duration-200 hover:bg-on-dark/10"
+          >
+            WhatsApp us
+          </a>
+          <a
+            href={telHref()}
+            class="inline-flex items-center px-2 py-4 text-sm font-semibold tabular-nums text-on-dark/75 no-underline hover:text-accent"
+          >
+            Or call {business.phone}
+          </a>
+        </div>
+        <ul class="mt-12 grid grid-cols-2 gap-x-6 gap-y-3 text-[0.72rem] font-medium uppercase tracking-[0.14em] text-on-dark/60 sm:gap-x-8 sm:text-[0.78rem] md:grid-cols-4">
+          <li class="flex items-center gap-2">
+            <span class="h-1 w-1 rounded-full bg-accent"></span>
+            17 years of craft
+          </li>
+          <li class="flex items-center gap-2">
+            <span class="h-1 w-1 rounded-full bg-accent"></span>
+            234 roofs restored
+          </li>
+          <li class="flex items-center gap-2">
+            <span class="h-1 w-1 rounded-full bg-accent"></span>
+            10-year guarantee
+          </li>
+          <li class="flex items-center gap-2">
+            <span class="h-1 w-1 rounded-full bg-accent"></span>
+            MBSA, CIPC, PIRB
+          </li>
+        </ul>
+      </div>
+
+      <div id="quote" class="relative lg:mt-0">
+        <HeroForm client:visible />
+      </div>
+    </div>
+
+    <div class="absolute bottom-5 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2 text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-on-dark/50 lg:flex">
+      <span>Scroll</span>
+      <span class="h-8 w-px bg-gradient-to-b from-accent to-transparent"></span>
+    </div>
+  </section>
+
+  <!-- SECTION 2, Trust bar -->
+  <section class="bg-primary text-on-dark">
+    <div class="mx-auto max-w-[1280px] px-6 py-8 lg:px-10">
+      <div class="grid gap-6 text-left sm:grid-cols-2 lg:grid-cols-4">
+        {
+          [
+            { label: "Est.", value: `${business.established}` },
+            { label: "Member", value: "MBSA" },
+            { label: "Guarantee", value: "10-year workmanship" },
+            { label: "Response", value: "48-hour quote" },
+          ].map((t) => (
+            <div class="reveal flex items-baseline gap-4">
+              <div class="font-heading text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-accent">
+                {t.label}
+              </div>
+              <div class="font-heading text-xl font-black uppercase tracking-[-0.01em] text-on-dark">
+                {t.value}
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 3, Services intro + cards -->
+  <section class="py-24 lg:py-32">
+    <div class="mx-auto max-w-[1280px] px-6 lg:px-10">
+      <div class="mb-14 grid gap-10 lg:grid-cols-[1fr_1.2fr]">
+        <div class="reveal-left">
+          <span class="mb-3 inline-block font-heading text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-accent">
+            Services
+          </span>
+          <h2 class="text-foreground">Five focused services. Done to a single standard.</h2>
+        </div>
+        <p class="reveal-right self-end max-w-xl text-lg text-foreground/70">
+          We do not try to be everything. We do slate, clay tile, concrete tile, full re-roofing, and waterproofing, and we finish them to the standard the home deserves.
+        </p>
+      </div>
+
+      <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+        {
+          services.map((s, i) => (
+            <div class="reveal" style={`animation-delay: ${i * 60}ms;`}>
+              <ServiceCard
+                slug={s.slug}
+                name={s.name}
+                short={s.short}
+                number={String(i + 1).padStart(2, "0")}
+              />
+            </div>
+          ))
+        }
+        <a
+          href="/services/"
+          class="reveal group flex flex-col justify-between rounded-lg border border-dashed border-border bg-transparent p-7 no-underline transition-all duration-200 hover:border-accent hover:bg-accent/5 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-4"
+        >
+          <div>
+            <span class="font-heading text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-foreground/50">
+              06
+            </span>
+            <h3 class="mt-3 font-heading text-[1.4rem] font-bold leading-tight text-foreground">
+              See every service
+            </h3>
+            <p class="mt-3 text-foreground/70">
+              Deep pages on each material with pricing, process, and honest FAQs.
+            </p>
+          </div>
+          <span class="mt-8 inline-flex items-center gap-2 font-heading text-sm font-bold uppercase tracking-[0.08em] text-accent">
+            All services
+            <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" class="transition-transform group-hover:translate-x-1"><path d="M5 12H19M13 6L19 12L13 18" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none" /></svg>
+          </span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 4, Featured material deep-dive -->
+  <section class="py-24 lg:py-32">
+    <div class="mx-auto grid max-w-[1280px] gap-12 px-6 lg:grid-cols-[1.1fr_1fr] lg:items-center lg:gap-20 lg:px-10">
+      <div class="reveal-left order-2 overflow-hidden rounded-xl lg:order-1">
+        <Image
+          src={featuredImg}
+          alt="Close overhead view of a hand-laid slate roof on a Joburg heritage home"
+          widths={[640, 960, 1400]}
+          sizes="(min-width: 1024px) 50vw, 100vw"
+          quality={86}
+          loading="lazy"
+          class="aspect-[4/5] w-full object-cover shadow-[0_40px_60px_-30px_rgba(15,15,15,0.35)]"
+        />
+      </div>
+      <div class="reveal-right order-1 lg:order-2">
+        <span class="mb-3 inline-block font-heading text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-accent">
+          Featured · Slate
+        </span>
+        <h2 class="text-foreground">The most demanding material, and the most rewarding one.</h2>
+        <div class="mt-6 space-y-5 text-lg leading-relaxed text-foreground/75">
+          <p>
+            Slate is cut by hand, nailed by hand, and finished by the small group of SA tradesmen who still know how. A slate roof done right will outlast the home beneath it.
+          </p>
+          <p>
+            Cederhof installs slate on heritage and estate properties across Joburg North, from full new roofs on period houses in Hyde Park to sympathetic repair on older slate that has slipped or cracked in Dainfern.
+          </p>
+        </div>
+        <a
+          href="/services/slate-roofing/"
+          class="mt-10 inline-flex items-center gap-2 rounded-md border border-foreground/20 px-5 py-3 font-heading text-sm font-bold uppercase tracking-[0.08em] text-foreground no-underline transition-colors hover:border-accent hover:text-accent"
+        >
+          Slate roofing page
+          <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M5 12H19M13 6L19 12L13 18" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none" /></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 5, Pinned scrolljack, What to Expect -->
+  <section class="border-t border-b border-on-dark/5 bg-muted py-20 lg:py-24">
+    <div class="mx-auto max-w-[1280px] px-6 lg:px-10">
+      <div class="grid gap-10 lg:grid-cols-[1fr_1.2fr]">
+        <div class="reveal-left">
+          <span class="mb-3 inline-block font-heading text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-accent">
+            What to expect
+          </span>
+          <h2 class="text-foreground">From first call to sign-off, exactly what happens.</h2>
+        </div>
+        <p class="reveal-right self-end max-w-xl text-lg text-foreground/70">
+          Scroll through the five steps below. Every Cederhof job runs this sequence, no surprises, no day-rate variations, no invoice that does not match the quote.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <ProcessScrollScene
+    client:visible
+    steps={processSteps}
+    images={processImages}
+  />
+
+  <!-- SECTION 6, Portfolio carousel -->
+  <section class="py-24 lg:py-32">
+    <div class="mx-auto max-w-[1280px] px-6 lg:px-10">
+      <div class="mb-10 flex flex-wrap items-end justify-between gap-6">
+        <div class="reveal-left">
+          <span class="mb-3 inline-block font-heading text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-accent">
+            Recent work
+          </span>
+          <h2 class="text-foreground">Projects across Joburg North.</h2>
+        </div>
+        <a
+          href="/portfolio/"
+          class="reveal-right inline-flex items-center gap-2 font-heading text-sm font-bold uppercase tracking-[0.08em] text-foreground no-underline hover:text-accent"
+        >
+          Full portfolio
+          <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M5 12H19M13 6L19 12L13 18" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none" /></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="relative">
+      <div class="flex snap-x snap-mandatory gap-5 overflow-x-auto pb-4 pl-[max(1.5rem,calc((100vw-1280px)/2+2.5rem))] pr-6 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+        {
+          portfolioImages.map((img, i) => (
+            <figure class="w-[85vw] max-w-[520px] flex-shrink-0 snap-start overflow-hidden rounded-xl bg-muted transition-transform duration-300 hover:-translate-y-1">
+              <Image
+                src={img}
+                alt={`${portfolioMeta[i].type} on a ${portfolioMeta[i].area} home, completed ${portfolioMeta[i].year}`}
+                widths={[520, 780, 1080]}
+                sizes="(min-width: 1024px) 520px, 85vw"
+                quality={82}
+                loading="lazy"
+                class="aspect-[4/3] w-full object-cover"
+              />
+              <figcaption class="bg-primary-dark px-6 py-4 text-on-dark">
+                <p class="font-heading font-bold uppercase tracking-[-0.01em]">{portfolioMeta[i].type}</p>
+                <p class="mt-1 text-sm text-on-dark/65">{portfolioMeta[i].area} · {portfolioMeta[i].year}</p>
+              </figcaption>
+            </figure>
+          ))
+        }
+        <div class="w-6 flex-shrink-0" aria-hidden="true"></div>
+      </div>
+      <p class="mt-3 px-6 text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-foreground/50 lg:px-10">
+        Scroll for more
+      </p>
+    </div>
+  </section>
+
+  <!-- SECTION 7, Why Cederhof -->
+  <section class="bg-primary-dark py-24 text-on-dark lg:py-32">
+    <div class="mx-auto max-w-[1280px] px-6 lg:px-10">
+      <div class="grid gap-16 lg:grid-cols-[1fr_1.3fr]">
+        <div class="reveal-left">
+          <span class="mb-3 inline-block font-heading text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-accent">
+            Why Cederhof
+          </span>
+          <h2 class="text-on-dark">Craft, not labour. The difference shows in the finish.</h2>
+          <p class="mt-6 max-w-md text-lg text-on-dark/70">
+            {business.yearsActive} years of premium residential work, a single standard, nothing subcontracted that we would not put our name to.
+          </p>
+        </div>
+
+        <div class="reveal-right">
+          <div class="grid gap-10 border-y border-on-dark/15 py-12 sm:grid-cols-3">
+            <div>
+              <div class="font-heading text-6xl font-black uppercase leading-none tracking-[-0.03em] text-accent">
+                <Counter client:visible end={business.yearsActive} />
+              </div>
+              <p class="mt-3 text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-on-dark/60">
+                Years of craft
+              </p>
+            </div>
+            <div>
+              <div class="font-heading text-6xl font-black uppercase leading-none tracking-[-0.03em] text-accent">
+                <Counter client:visible end={234} />
+              </div>
+              <p class="mt-3 text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-on-dark/60">
+                Roofs restored
+              </p>
+            </div>
+            <div>
+              <div class="font-heading text-6xl font-black uppercase leading-none tracking-[-0.03em] text-accent">
+                <Counter client:visible end={10} suffix="yr" />
+              </div>
+              <p class="mt-3 text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-on-dark/60">
+                Workmanship guarantee
+              </p>
+            </div>
+          </div>
+
+          <div class="mt-10 grid gap-5 md:grid-cols-3">
+            {
+              [
+                {
+                  title: "Finished by hand",
+                  body: "No spray-and-pray crews. Tradesmen who have been with Cederhof five years or more.",
+                },
+                {
+                  title: "Clean site, every day",
+                  body: "Boarded gardens, swept driveways, debris hauled the day it comes off the roof.",
+                },
+                {
+                  title: "MBSA-certified",
+                  body: "The only SA body that audits tradesmen on craft, not just paperwork.",
+                },
+              ].map((d, i) => (
+                <div class="reveal rounded-md border border-on-dark/10 bg-on-dark/5 p-5 backdrop-blur" style={`animation-delay: ${i * 80}ms;`}>
+                  <h3 class="mb-2 font-heading text-base font-bold uppercase tracking-[-0.01em] text-on-dark">{d.title}</h3>
+                  <p class="text-sm text-on-dark/70">{d.body}</p>
+                </div>
+              ))
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 8, Testimonials marquee -->
+  <section class="bg-muted py-24 lg:py-32">
+    <div class="mx-auto max-w-[1280px] px-6 mb-12 lg:px-10">
+      <div class="grid gap-8 md:grid-cols-[1fr_1.2fr] md:items-end">
+        <div class="reveal-left">
+          <span class="mb-3 inline-block font-heading text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-accent">
+            What clients say
+          </span>
+          <h2 class="text-foreground">Named, with suburb and material. Not anonymous quotes.</h2>
+        </div>
+        <p class="reveal-right max-w-xl text-lg text-foreground/70">
+          Every testimonial below is a real client, real suburb, real material. Full context, not a five-star number on a review platform.
+        </p>
+      </div>
+    </div>
+
+    <TestimonialCarousel />
+  </section>
+
+  <!-- SECTION 9, Service areas Google Maps + grid -->
+  <section class="py-24 lg:py-32">
+    <div class="mx-auto max-w-[1280px] px-6 lg:px-10">
+      <div class="mb-12 grid gap-8 md:grid-cols-[1fr_1.2fr] md:items-end">
+        <div class="reveal-left">
+          <span class="mb-3 inline-block font-heading text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-accent">
+            Service areas
+          </span>
+          <h2 class="text-foreground">Focused on Johannesburg North.</h2>
+        </div>
+        <p class="reveal-right max-w-xl text-lg text-foreground/70">
+          Eight suburbs we know by street. We do not stretch our footprint to claim coverage we cannot deliver quickly.
+        </p>
+      </div>
+
+      <div class="grid gap-8 lg:grid-cols-[1.25fr_1fr] lg:items-start">
+        <div class="reveal-left">
+          <SuburbMap height="520px" />
+        </div>
+        <ul class="grid grid-cols-1 gap-3 sm:grid-cols-2">
+          {
+            areas.map((a, i) => (
+              <li class="reveal" style={`animation-delay: ${i * 50}ms;`}>
+                <a
+                  href={`/areas/${a.slug}/`}
+                  class="flex items-center justify-between gap-4 rounded-md border border-border bg-background px-5 py-4 no-underline transition-all duration-200 hover:border-accent hover:bg-accent/5 hover:-translate-y-0.5"
+                >
+                  <div>
+                    <p class="font-heading font-bold uppercase tracking-[-0.01em] text-foreground">{a.name}</p>
+                    <p class="text-xs text-foreground/60">
+                      {a.priority === "P1" ? "Primary area" : "Secondary area"} · {a.kmFromBase} km
+                    </p>
+                  </div>
+                  <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" class="text-foreground/40"><path d="M9 6L15 12L9 18" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none" /></svg>
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 10, FAQ -->
+  <section class="py-24 lg:py-32">
+    <div class="mx-auto max-w-[1280px] px-6 lg:px-10">
+      <div class="reveal">
+        <FAQ items={homeFaqs} eyebrow="Questions" heading="Straight answers to the questions you would ask on a first call." />
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 11, WhatsApp CTA -->
+  <section class="bg-primary-dark text-on-dark">
+    <div class="mx-auto grid max-w-[1280px] gap-12 px-6 py-24 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-center lg:gap-20 lg:px-10 lg:py-28">
+      <div class="reveal-left w-full max-w-[680px]">
+        <span class="mb-5 inline-block font-heading text-[0.72rem] font-semibold uppercase tracking-[0.22em] text-accent">
+          Free quote in 48 hours
+        </span>
+        <h2
+          class="text-on-dark"
+          style="font-size: clamp(1.9rem, 3vw, 2.5rem); line-height: 1.2; letter-spacing: -0.005em;"
+        >
+          Tell us what you need. We will be on site within 48 hours.
+        </h2>
+        <p class="mt-7 text-lg leading-[1.75] text-on-dark/75" style="max-width: 56ch;">
+          Free on-site assessment across Johannesburg North. No obligation, no pushy sales, just an honest look at the work and a written price within two days.
+        </p>
+      </div>
+      <div class="reveal-right flex w-full flex-col gap-3 sm:flex-row lg:w-auto lg:flex-shrink-0 lg:flex-col xl:flex-row">
+        <a
+          href={whatsappHref()}
+          rel="noopener"
+          class="inline-flex items-center justify-center gap-3 whitespace-nowrap rounded-md bg-accent px-6 py-4 font-heading text-sm font-bold uppercase tracking-[0.1em] text-on-primary no-underline transition-all duration-200 hover:bg-accent-hover active:scale-[0.98]"
+        >
+          <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.149-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347z" /></svg>
+          WhatsApp {business.whatsapp}
+        </a>
+        <a
+          href={telHref()}
+          class="inline-flex items-center justify-center gap-3 whitespace-nowrap rounded-md border border-on-dark/25 bg-on-dark/5 px-6 py-4 font-heading text-sm font-bold uppercase tracking-[0.1em] text-on-dark no-underline backdrop-blur transition-all duration-200 hover:bg-on-dark/10"
+        >
+          Call {business.phone}
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

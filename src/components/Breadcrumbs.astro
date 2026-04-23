@@ -1,0 +1,41 @@
+---
+interface Props {
+  items: { name: string; href: string }[];
+}
+
+const { items } = Astro.props;
+---
+
+<nav aria-label="Breadcrumb" class="mb-10">
+  <ol class="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs text-foreground/60">
+    {
+      items.map((item, i) => {
+        const isLast = i === items.length - 1;
+        return (
+          <li class="flex items-center gap-2">
+            {isLast ? (
+              <span
+                class="font-semibold uppercase tracking-[0.14em] text-foreground"
+                aria-current="page"
+              >
+                {item.name}
+              </span>
+            ) : (
+              <a
+                href={item.href}
+                class="uppercase tracking-[0.14em] text-foreground/60 no-underline hover:text-accent"
+              >
+                {item.name}
+              </a>
+            )}
+            {!isLast && (
+              <span aria-hidden="true" class="text-foreground/30">
+                /
+              </span>
+            )}
+          </li>
+        );
+      })
+    }
+  </ol>
+</nav>

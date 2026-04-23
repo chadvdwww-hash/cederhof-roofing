@@ -1,0 +1,314 @@
+---
+import { Image } from "astro:assets";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Breadcrumbs from "./Breadcrumbs.astro";
+import FAQ from "./FAQ.astro";
+import BeforeAfter from "./BeforeAfter.tsx";
+import { business, whatsappHref, telHref } from "../data/business";
+import { services, type Service } from "../data/services";
+import { areas } from "../data/areas";
+
+interface Props {
+  service: Service;
+}
+
+const { service } = Astro.props;
+
+const heroImport = import.meta.glob<{ default: ImageMetadata }>(
+  "../assets/images/stock/*.jpg",
+  { eager: true }
+);
+
+function pick(filename: string): ImageMetadata {
+  const path = `../assets/images/stock/${filename}`;
+  const mod = heroImport[path];
+  if (!mod) throw new Error(`Stock image not found: ${filename}`);
+  return mod.default;
+}
+
+const heroImg = pick(service.heroImage);
+const detailImgs = service.detailImages.map(pick);
+
+const relatedServices = services.filter((s) => service.related.includes(s.slug));
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: service.name,
+  description: service.metaDescription,
+  provider: {
+    "@type": "RoofingContractor",
+    name: business.name,
+    url: business.siteUrl,
+    telephone: business.phoneE164,
+  },
+  serviceType: service.name,
+  areaServed: areas.map((a) => a.name),
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: service.faqs.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+};
+
+const breadcrumbs = [
+  { name: "Home", href: "/" },
+  { name: "Services", href: "/services/" },
+  { name: service.name, href: `/services/${service.slug}/` },
+];
+---
+
+<BaseLayout
+  title={service.title}
+  description={service.metaDescription}
+  schema={[serviceSchema, faqSchema]}
+  breadcrumbs={breadcrumbs}
+>
+  <!-- SECTION 1: Hero - full-bleed -->
+  <section class="relative min-h-[85dvh] overflow-hidden">
+    <Image
+      src={heroImg}
+      alt={`${service.name} by Cederhof Roofing, premium residential craft for Joburg North heritage and estate homes`}
+      widths={[640, 1024, 1600, 2200]}
+      sizes="100vw"
+      quality={84}
+      loading="eager"
+      fetchpriority="high"
+      class="absolute inset-0 h-full w-full object-cover"
+    />
+    <div class="absolute inset-0 bg-gradient-to-r from-primary-dark via-primary-dark/80 to-primary-dark/20" aria-hidden="true"></div>
+
+    <div class="relative mx-auto flex min-h-[85dvh] max-w-[1280px] flex-col justify-end px-6 pb-20 pt-32 lg:px-10">
+      <div class="max-w-2xl">
+        <div class="mb-6 text-[0.7rem] font-semibold uppercase tracking-[0.16em] text-on-dark/75">
+          <a href="/services/" class="text-on-dark/55 hover:text-accent">Services</a>
+          <span class="mx-2 text-on-dark/30">/</span>
+          <span>{service.name}</span>
+        </div>
+        <h1 class="mb-6 font-heading text-on-dark" style="font-size: clamp(2.25rem, 5vw, 4rem); font-weight: 700; line-height: 1.05;">
+          {service.h1}
+        </h1>
+        <p class="max-w-xl text-lg leading-relaxed text-on-dark/75 md:text-xl">
+          {service.subheadline}
+        </p>
+        <div class="mt-10 flex flex-wrap gap-3">
+          <a href="/contact/" class="inline-flex items-center gap-2 rounded-md bg-accent px-6 py-4 text-base font-semibold text-on-primary no-underline transition-all duration-200 hover:bg-accent-hover active:scale-[0.98]">
+            Request a quote
+          </a>
+          <a href={whatsappHref(`Hi Cederhof, I'd like a quote for ${service.name.toLowerCase()} on my home.`)} rel="noopener" class="inline-flex items-center gap-2 rounded-md border border-on-dark/25 bg-on-dark/5 px-6 py-4 text-base font-semibold text-on-dark no-underline backdrop-blur transition-all duration-200 hover:bg-on-dark/10">
+            WhatsApp {business.whatsapp}
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 2: Material intro - asymmetric-split -->
+  <section class="py-24 lg:py-32">
+    <div class="mx-auto max-w-[1280px] px-6 lg:px-10">
+      <Breadcrumbs items={breadcrumbs} />
+
+      <div class="grid gap-14 lg:grid-cols-[1.2fr_1fr] lg:gap-20">
+        <div>
+          <span class="mb-3 inline-block font-heading text-[0.7rem] font-semibold uppercase tracking-[0.16em] text-accent">
+            What this covers
+          </span>
+          <h2 class="text-foreground">{service.name.replace(/\.$/, "")}, done properly.</h2>
+          <p class="mt-6 text-lg leading-relaxed text-foreground/75">{service.intro}</p>
+
+          <h3 class="mt-12 font-heading text-xl font-bold text-foreground">What's included</h3>
+          <ul class="mt-5 space-y-3 text-foreground/80">
+            {
+              service.whatsIncluded.map((item) => (
+                <li class="flex items-start gap-3">
+                  <span class="mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-accent" aria-hidden="true"></span>
+                  <span>{item}</span>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+
+        <div class="lg:pt-12">
+          <Image
+            src={detailImgs[0]}
+            alt={`Detail shot of ${service.name.toLowerCase()} as finished by Cederhof Roofing`}
+            widths={[480, 720, 960]}
+            sizes="(min-width: 1024px) 40vw, 100vw"
+            quality={84}
+            loading="lazy"
+            class="aspect-[3/4] w-full rounded-xl object-cover shadow-[0_40px_60px_-30px_rgba(23,23,23,0.3)]"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 3: Process - custom-layout -->
+  <section class="bg-muted py-24 lg:py-32">
+    <div class="mx-auto max-w-[1280px] px-6 lg:px-10">
+      <div class="mb-14 max-w-2xl">
+        <span class="mb-3 inline-block font-heading text-[0.7rem] font-semibold uppercase tracking-[0.16em] text-accent">
+          How we work
+        </span>
+        <h2 class="text-foreground">From assessment to sign-off.</h2>
+      </div>
+
+      <ol class="grid gap-6 md:grid-cols-2 lg:grid-cols-5">
+        {
+          service.process.map((step, i) => (
+            <li
+              class="relative rounded-lg border border-border bg-background p-6"
+              style={i % 2 === 1 ? "margin-top: 2rem;" : ""}
+            >
+              <div class="mb-4 font-heading text-5xl font-black tracking-[-0.03em] text-accent/80">
+                {String(step.step).padStart(2, "0")}
+              </div>
+              <h3 class="mb-2 font-heading text-lg font-bold text-foreground">{step.title}</h3>
+              <p class="text-sm leading-relaxed text-foreground/70">{step.body}</p>
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+  </section>
+
+  {
+    service.hasBeforeAfter && detailImgs[1] && (
+      <section class="py-24 lg:py-32">
+        <div class="mx-auto max-w-[1280px] px-6 lg:px-10">
+          <div class="mb-10 max-w-2xl">
+            <span class="mb-3 inline-block font-heading text-[0.7rem] font-semibold uppercase tracking-[0.16em] text-accent">
+              Before & after
+            </span>
+            <h2 class="text-foreground">Drag the slider. See the difference in craft.</h2>
+          </div>
+          <BeforeAfter
+            client:visible
+            before={detailImgs[0].src}
+            after={detailImgs[1].src}
+            beforeAlt={`Original ${service.name.toLowerCase()} condition before Cederhof intervention`}
+            afterAlt={`Completed ${service.name.toLowerCase()} by Cederhof Roofing`}
+          />
+        </div>
+      </section>
+    )
+  }
+
+  <!-- SECTION 5: Pricing indication - tinted-bg -->
+  <section class="bg-muted py-24 lg:py-32">
+    <div class="mx-auto max-w-[1280px] px-6 lg:px-10">
+      <div class="mb-12 grid gap-8 md:grid-cols-[1fr_1.2fr] md:items-end">
+        <div>
+          <span class="mb-3 inline-block font-heading text-[0.7rem] font-semibold uppercase tracking-[0.16em] text-accent">
+            Pricing
+          </span>
+          <h2 class="text-foreground">Honest ranges. Firm quotes in writing.</h2>
+        </div>
+        <p class="max-w-xl text-lg text-foreground/70">{service.pricingNote}</p>
+      </div>
+
+      <div class="overflow-hidden rounded-lg border border-border bg-background">
+        <table class="w-full">
+          <thead>
+            <tr class="border-b border-border bg-muted/50 text-left">
+              <th class="px-6 py-4 font-heading text-[0.68rem] font-semibold uppercase tracking-[0.14em] text-foreground/60">Work</th>
+              <th class="px-6 py-4 font-heading text-[0.68rem] font-semibold uppercase tracking-[0.14em] text-foreground/60">Typical range</th>
+              <th class="px-6 py-4 font-heading text-[0.68rem] font-semibold uppercase tracking-[0.14em] text-foreground/60">Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              service.pricing.map((p, i) => (
+                <tr class={i !== service.pricing.length - 1 ? "border-b border-border" : ""}>
+                  <td class="px-6 py-5 font-semibold text-foreground">{p.label}</td>
+                  <td class="px-6 py-5 font-heading text-lg font-bold tabular-nums text-accent">{p.range}</td>
+                  <td class="px-6 py-5 text-sm text-foreground/70">{p.note}</td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 6: FAQ - card-grid -->
+  <section class="py-24 lg:py-32">
+    <div class="mx-auto max-w-[1280px] px-6 lg:px-10">
+      <FAQ items={service.faqs} eyebrow={`${service.name} FAQs`} heading="The questions we get most." />
+    </div>
+  </section>
+
+  <!-- SECTION 7: Related services - tinted-bg -->
+  <section class="bg-muted py-24 lg:py-32">
+    <div class="mx-auto max-w-[1280px] px-6 lg:px-10">
+      <div class="mb-10 flex items-end justify-between gap-6">
+        <div>
+          <span class="mb-3 inline-block font-heading text-[0.7rem] font-semibold uppercase tracking-[0.16em] text-accent">
+            Related services
+          </span>
+          <h2 class="text-foreground">You may also need</h2>
+        </div>
+        <a href="/services/" class="inline-flex items-center gap-2 text-sm font-semibold text-foreground no-underline hover:text-accent">
+          All services
+          <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M5 12H19M13 6L19 12L13 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" /></svg>
+        </a>
+      </div>
+      <div class="grid gap-5 md:grid-cols-3">
+        {
+          relatedServices.map((r) => (
+            <a
+              href={`/services/${r.slug}/`}
+              class="group flex flex-col justify-between rounded-lg border border-border bg-background p-7 no-underline transition-all duration-200 hover:border-accent/50 hover:-translate-y-1"
+            >
+              <div>
+                <h3 class="font-heading text-[1.3rem] font-bold leading-tight text-foreground">
+                  {r.name}
+                </h3>
+                <p class="mt-3 text-foreground/70">{r.short}</p>
+              </div>
+              <span class="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-foreground transition-colors group-hover:text-accent">
+                Read more
+                <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" class="transition-transform group-hover:translate-x-1"><path d="M5 12H19M13 6L19 12L13 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" /></svg>
+              </span>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 8: CTA - dark-contrast -->
+  <section class="bg-primary-dark text-on-dark">
+    <div class="mx-auto grid max-w-[1280px] gap-12 px-6 py-24 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-center lg:gap-20 lg:px-10 lg:py-28">
+      <div class="w-full max-w-[680px]">
+        <span class="mb-5 inline-block font-heading text-[0.72rem] font-semibold uppercase tracking-[0.22em] text-accent">
+          Free on-site assessment
+        </span>
+        <h2
+          class="text-on-dark"
+          style="font-size: clamp(1.9rem, 3vw, 2.5rem); line-height: 1.2; letter-spacing: -0.005em;"
+        >
+          Get a firm quote for your {service.name.toLowerCase()}.
+        </h2>
+        <p class="mt-7 text-lg leading-[1.75] text-on-dark/75" style="max-width: 56ch;">
+          Free on-site assessment within 48 hours across Johannesburg North. Written itemised quote, no day-rate variations.
+        </p>
+      </div>
+      <div class="flex w-full flex-col gap-3 sm:flex-row lg:w-auto lg:flex-shrink-0 lg:flex-col xl:flex-row">
+        <a href="/contact/" class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md bg-accent px-6 py-4 font-heading text-sm font-bold uppercase tracking-[0.1em] text-on-primary no-underline transition-all duration-200 hover:bg-accent-hover active:scale-[0.98]">
+          Request a quote
+        </a>
+        <a href={telHref()} class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md border border-on-dark/25 bg-on-dark/5 px-6 py-4 font-heading text-sm font-bold uppercase tracking-[0.1em] text-on-dark no-underline backdrop-blur transition-all duration-200 hover:bg-on-dark/10">
+          Call {business.phone}
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

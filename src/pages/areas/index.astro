@@ -1,0 +1,154 @@
+---
+import { Image } from "astro:assets";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import SuburbMap from "../../components/SuburbMap.astro";
+import { business, whatsappHref, telHref } from "../../data/business";
+import { areas } from "../../data/areas";
+import heroImg from "../../assets/images/stock/golden-hour-modern-house-3.jpg";
+
+const breadcrumbs = [
+  { name: "Home", href: "/" },
+  { name: "Areas", href: "/areas/" },
+];
+
+const p1 = areas.filter((a) => a.priority === "P1");
+const p2 = areas.filter((a) => a.priority === "P2");
+---
+
+<BaseLayout
+  title="Service Areas | Cederhof Roofing Johannesburg North"
+  description="Dainfern, Sandton, Bryanston, Hyde Park, Fourways, Rivonia, Hurlingham, Parkhurst. See recent work in your suburb."
+  breadcrumbs={breadcrumbs}
+>
+  <section class="relative min-h-[55dvh] overflow-hidden">
+    <Image
+      src={heroImg}
+      alt="Panoramic view over residential Johannesburg North homes at golden hour"
+      widths={[640, 1024, 1600, 2200]}
+      sizes="100vw"
+      quality={84}
+      loading="eager"
+      fetchpriority="high"
+      class="absolute inset-0 h-full w-full object-cover"
+    />
+    <div class="absolute inset-0 bg-gradient-to-r from-primary-dark via-primary-dark/80 to-primary-dark/30" aria-hidden="true"></div>
+
+    <div class="relative mx-auto flex min-h-[55dvh] max-w-[1280px] flex-col justify-end px-6 pb-16 pt-32 lg:px-10 lg:pb-20">
+      <div class="max-w-3xl">
+        <span class="mb-5 inline-block font-heading text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-on-dark/75">
+          Service areas
+        </span>
+        <h1 class="mb-5 font-heading text-on-dark" style="font-size: clamp(2.25rem, 5vw, 4rem); font-weight: 700; line-height: 1.05;">
+          Focused on Johannesburg North.
+        </h1>
+        <p class="max-w-2xl text-lg text-on-dark/75 md:text-xl">
+          Eight suburbs we know by street. No templated coverage pages, each suburb has its own content, its own projects, its own architectural context.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-24 lg:py-32">
+    <div class="mx-auto max-w-[1280px] px-6 lg:px-10">
+      <Breadcrumbs items={breadcrumbs} />
+
+      <div class="mb-16 grid gap-12 lg:grid-cols-[1.1fr_1fr] lg:items-start">
+        <div class="rounded-xl border border-border bg-background p-6">
+          <SuburbMap />
+        </div>
+        <div>
+          <h2 class="text-foreground">Why tight focus beats wide coverage.</h2>
+          <p class="mt-5 text-lg leading-relaxed text-foreground/75">
+            We are based in Bryanston. Our tradesmen live within 15 minutes of the suburb. Eight suburbs within a 15 km radius means emergency response same week, and a project lead who has worked on the street before.
+          </p>
+          <p class="mt-5 text-foreground/70">
+            Wider coverage means slower response and an unfamiliar team on your roof. We would rather say no than stretch the footprint.
+          </p>
+        </div>
+      </div>
+
+      <div class="mb-14">
+        <h2 class="mb-8 font-heading text-foreground" style="font-size: clamp(1.6rem, 2.5vw, 2.25rem); font-weight: 700;">
+          Primary areas
+        </h2>
+        <div class="grid gap-5 md:grid-cols-2">
+          {
+            p1.map((a) => (
+              <a
+                href={`/areas/${a.slug}/`}
+                class="group flex flex-col justify-between gap-6 rounded-lg border border-border bg-background p-8 no-underline transition-all duration-200 hover:border-accent/50 hover:-translate-y-1"
+              >
+                <div>
+                  <span class="font-heading text-[0.7rem] font-semibold uppercase tracking-[0.16em] text-accent">
+                    {a.kmFromBase} km from base
+                  </span>
+                  <h3 class="mt-3 font-heading text-[1.5rem] font-bold leading-tight text-foreground">
+                    {a.name}
+                  </h3>
+                  <p class="mt-3 text-foreground/70">{a.subheadline}</p>
+                </div>
+                <span class="inline-flex items-center gap-2 text-sm font-semibold text-foreground transition-colors group-hover:text-accent">
+                  View {a.name} page
+                  <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" class="transition-transform group-hover:translate-x-1"><path d="M5 12H19M13 6L19 12L13 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" /></svg>
+                </span>
+              </a>
+            ))
+          }
+        </div>
+      </div>
+
+      <div>
+        <h2 class="mb-8 font-heading text-foreground" style="font-size: clamp(1.6rem, 2.5vw, 2.25rem); font-weight: 700;">
+          Secondary areas
+        </h2>
+        <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          {
+            p2.map((a) => (
+              <a
+                href={`/areas/${a.slug}/`}
+                class="group flex flex-col justify-between gap-4 rounded-lg border border-border bg-muted p-6 no-underline transition-all duration-200 hover:border-accent/50 hover:bg-background"
+              >
+                <div>
+                  <h3 class="font-heading text-lg font-bold text-foreground">{a.name}</h3>
+                  <p class="mt-1 text-xs text-foreground/60">{a.kmFromBase} km from base</p>
+                </div>
+                <span class="inline-flex items-center gap-2 text-sm font-semibold text-foreground transition-colors group-hover:text-accent">
+                  Page
+                  <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" class="transition-transform group-hover:translate-x-1"><path d="M5 12H19M13 6L19 12L13 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" /></svg>
+                </span>
+              </a>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-primary-dark text-on-dark">
+    <div class="mx-auto grid max-w-[1280px] gap-12 px-6 py-24 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-center lg:gap-20 lg:px-10 lg:py-28">
+      <div class="w-full max-w-[680px]">
+        <span class="mb-5 inline-block font-heading text-[0.72rem] font-semibold uppercase tracking-[0.22em] text-accent">
+          Outside the list
+        </span>
+        <h2
+          class="text-on-dark"
+          style="font-size: clamp(1.9rem, 3vw, 2.5rem); line-height: 1.2; letter-spacing: -0.005em;"
+        >
+          Don't see your suburb?
+        </h2>
+        <p class="mt-7 text-lg leading-[1.75] text-on-dark/75" style="max-width: 56ch;">
+          Send us a WhatsApp with your address. If we can deliver to our standard in your area, we will tell you honestly, and if we cannot, we will refer you to someone who can.
+        </p>
+      </div>
+      <div class="flex w-full flex-col gap-3 sm:flex-row lg:w-auto lg:flex-shrink-0 lg:flex-col xl:flex-row">
+        <a href={whatsappHref()} rel="noopener" class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md bg-accent px-6 py-4 font-heading text-sm font-bold uppercase tracking-[0.1em] text-on-primary no-underline transition-all duration-200 hover:bg-accent-hover active:scale-[0.98]">
+          WhatsApp {business.whatsapp}
+        </a>
+        <a href={telHref()} class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md border border-on-dark/25 bg-on-dark/5 px-6 py-4 font-heading text-sm font-bold uppercase tracking-[0.1em] text-on-dark no-underline backdrop-blur transition-all duration-200 hover:bg-on-dark/10">
+          Call {business.phone}
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

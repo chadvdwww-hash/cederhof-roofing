@@ -1,0 +1,104 @@
+---
+import { Image } from "astro:assets";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Breadcrumbs from "../components/Breadcrumbs.astro";
+import Gallery from "../components/Gallery.tsx";
+import { business, whatsappHref, telHref } from "../data/business";
+import { portfolio } from "../data/portfolio";
+import heroImg from "../assets/images/stock/golden-hour-modern-house-1.jpg";
+
+const glob = import.meta.glob<{ default: ImageMetadata }>(
+  "../assets/images/stock/*.jpg",
+  { eager: true }
+);
+function pick(f: string): ImageMetadata {
+  return glob[`../assets/images/stock/${f}`].default;
+}
+
+const projects = portfolio.map((p) => {
+  const img = pick(p.image);
+  return {
+    id: p.id,
+    src: img.src,
+    alt: `${p.service} on ${p.propertyType} in ${p.suburb}, completed ${p.date}`,
+    propertyType: p.propertyType,
+    suburb: p.suburb,
+    material: p.material,
+    service: p.service,
+    date: p.date,
+  };
+});
+
+const breadcrumbs = [
+  { name: "Home", href: "/" },
+  { name: "Portfolio", href: "/portfolio/" },
+];
+---
+
+<BaseLayout
+  title="Roofing Portfolio, Heritage and Estate Homes | Cederhof Roofing"
+  description="Recent slate, clay tile, and re-roofing projects across Dainfern, Sandton, Bryanston and Hyde Park."
+  breadcrumbs={breadcrumbs}
+>
+  <section class="relative min-h-[55dvh] overflow-hidden">
+    <Image
+      src={heroImg}
+      alt="Recent Cederhof Roofing project, residential slate roof at golden hour"
+      widths={[640, 1024, 1600, 2200]}
+      sizes="100vw"
+      quality={84}
+      loading="eager"
+      fetchpriority="high"
+      class="absolute inset-0 h-full w-full object-cover"
+    />
+    <div class="absolute inset-0 bg-gradient-to-r from-primary-dark via-primary-dark/80 to-primary-dark/30" aria-hidden="true"></div>
+
+    <div class="relative mx-auto flex min-h-[55dvh] max-w-[1280px] flex-col justify-end px-6 pb-16 pt-32 lg:px-10 lg:pb-20">
+      <div class="max-w-3xl">
+        <span class="mb-5 inline-block font-heading text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-on-dark/75">
+          Portfolio
+        </span>
+        <h1 class="mb-5 font-heading text-on-dark" style="font-size: clamp(2.25rem, 5vw, 4rem); font-weight: 700; line-height: 1.05;">
+          Recent roofing projects across Joburg North.
+        </h1>
+        <p class="max-w-2xl text-lg text-on-dark/75 md:text-xl">
+          Every project labelled with property type, suburb, material, and date. The work speaks for itself, filter by material or click through for detail.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-24 lg:py-32">
+    <div class="mx-auto max-w-[1280px] px-6 lg:px-10">
+      <Breadcrumbs items={breadcrumbs} />
+      <Gallery client:visible projects={projects} />
+    </div>
+  </section>
+
+  <section class="bg-primary-dark text-on-dark">
+    <div class="mx-auto grid max-w-[1280px] gap-12 px-6 py-24 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-center lg:gap-20 lg:px-10 lg:py-28">
+      <div class="w-full max-w-[680px]">
+        <span class="mb-5 inline-block font-heading text-[0.72rem] font-semibold uppercase tracking-[0.22em] text-accent">
+          Free quote in 48 hours
+        </span>
+        <h2
+          class="text-on-dark"
+          style="font-size: clamp(1.9rem, 3vw, 2.5rem); line-height: 1.2; letter-spacing: -0.005em;"
+        >
+          Want work like this on your home?
+        </h2>
+        <p class="mt-7 text-lg leading-[1.75] text-on-dark/75" style="max-width: 56ch;">
+          Free on-site assessment within 48 hours across Joburg North. Written quote within two days of the visit, no day-rate variations.
+        </p>
+      </div>
+      <div class="flex w-full flex-col gap-3 sm:flex-row lg:w-auto lg:flex-shrink-0 lg:flex-col xl:flex-row">
+        <a href="/contact/" class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md bg-accent px-6 py-4 font-heading text-sm font-bold uppercase tracking-[0.1em] text-on-primary no-underline transition-all duration-200 hover:bg-accent-hover active:scale-[0.98]">
+          Request a quote
+        </a>
+        <a href={whatsappHref()} rel="noopener" class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md border border-on-dark/25 bg-on-dark/5 px-6 py-4 font-heading text-sm font-bold uppercase tracking-[0.1em] text-on-dark no-underline backdrop-blur transition-all duration-200 hover:bg-on-dark/10">
+          WhatsApp {business.whatsapp}
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

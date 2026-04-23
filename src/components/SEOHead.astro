@@ -1,0 +1,93 @@
+---
+import { business } from "../data/business";
+
+interface Props {
+  title: string;
+  description: string;
+  canonical?: string;
+  ogImage?: string;
+  noindex?: boolean;
+  schema?: object | object[];
+  breadcrumbs?: { name: string; href: string }[];
+}
+
+const {
+  title,
+  description,
+  canonical = Astro.url.href,
+  ogImage = "/og-default.jpg",
+  noindex = false,
+  schema,
+  breadcrumbs,
+} = Astro.props;
+
+const schemas: object[] = [];
+
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: business.name,
+  url: business.siteUrl,
+  logo: `${business.siteUrl}/favicon.svg`,
+  contactPoint: {
+    "@type": "ContactPoint",
+    telephone: business.phoneE164,
+    contactType: "customer service",
+    areaServed: "ZA",
+    availableLanguage: ["en"],
+  },
+};
+schemas.push(organizationSchema);
+
+if (breadcrumbs && breadcrumbs.length > 0) {
+  schemas.push({
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: breadcrumbs.map((b, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: b.name,
+      item: new URL(b.href, business.siteUrl).toString(),
+    })),
+  });
+}
+
+if (schema) {
+  if (Array.isArray(schema)) schemas.push(...schema);
+  else schemas.push(schema);
+}
+
+const ogImageUrl = new URL(ogImage, business.siteUrl).toString();
+---
+
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<title>{title}</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={canonical} />
+{noindex && <meta name="robots" content="noindex, nofollow" />}
+
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={ogImageUrl} />
+<meta property="og:url" content={canonical} />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content={business.name} />
+<meta property="og:locale" content="en_ZA" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={ogImageUrl} />
+
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<meta name="theme-color" content="#171717" />
+
+{
+  schemas.map((s) => (
+    <script type="application/ld+json" set:html={JSON.stringify(s)} />
+  ))
+}
+
+<slot />
