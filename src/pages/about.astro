@@ -1,0 +1,237 @@
+---
+import { Image } from "astro:assets";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Breadcrumbs from "../components/Breadcrumbs.astro";
+import { business, whatsappHref, telHref } from "../data/business";
+import heroImg from "../assets/images/stock/roof-installation-worker-1.jpg";
+import craftImg from "../assets/images/stock/slate-tile-roof-2.jpg";
+
+const breadcrumbs = [
+  { name: "Home", href: "/" },
+  { name: "About", href: "/about/" },
+];
+
+const values = [
+  {
+    n: "01",
+    title: "Quote firm, invoice matches.",
+    body: "Every quote is itemised and fixed. If structural work is uncertain, we price the worst case separately so you can see it. No day-rate variations, no invoice surprises.",
+  },
+  {
+    n: "02",
+    title: "Tradesmen who stay.",
+    body: "Our project leads have been with Cederhof for five years or more. The person on your roof today will be the person on your follow-up call in 12 months.",
+  },
+  {
+    n: "03",
+    title: "Clean site, every evening.",
+    body: "Boarded gardens, swept driveways, debris removed the day it comes off the roof. The site you live with during the project is part of the product.",
+  },
+  {
+    n: "04",
+    title: "Only what we're good at.",
+    body: "Five services, all premium residential. We don't take on commercial, we don't take on thatch, we don't take on solar. The ones we do take on, we finish to a single standard.",
+  },
+];
+
+const team = [
+  {
+    name: "Johan Cederhof",
+    role: "Founder & Master Tradesman",
+    bio: "Third-generation roofer. Founded Cederhof in 2009 after 14 years working heritage restoration in Cape Town. MBSA certified since 2012.",
+    years: 31,
+  },
+  {
+    name: "Lerato Mokoena",
+    role: "Operations Lead",
+    bio: "Runs every project from site survey to final walk-through. Holds the admin burden off clients, HOA submissions, engineer coordination, material logistics.",
+    years: 12,
+  },
+  {
+    name: "Dumisani Khumalo",
+    role: "Slate Specialist",
+    bio: "Trained at a Welsh quarry in 2014. Leads every slate installation and heritage repair project. Hand-nails every exposed pitch personally.",
+    years: 9,
+  },
+];
+---
+
+<BaseLayout
+  title={`About Cederhof Roofing, MBSA Member Since ${business.established}`}
+  description={`${business.name}, est. ${business.established}. MBSA and CIPC registered. Craft-led residential roofing for Joburg North. Meet the team.`}
+  breadcrumbs={breadcrumbs}
+>
+  <section class="bg-muted">
+    <div class="mx-auto max-w-[1280px] px-6 pb-20 pt-32 lg:px-10">
+      <Breadcrumbs items={breadcrumbs} />
+      <span class="mb-5 inline-block font-heading text-[0.7rem] font-semibold uppercase tracking-[0.16em] text-accent">
+        About {business.name}
+      </span>
+      <h1 class="mb-6 font-heading text-foreground" style="font-size: clamp(2.25rem, 5vw, 4rem); font-weight: 700; line-height: 1.05;">
+        Craft-led residential roofing, since {business.established}.
+      </h1>
+      <p class="max-w-3xl text-lg leading-relaxed text-foreground/75 md:text-xl">
+        Cederhof started in 2009 with one founder, one Bakkie, and a determination to do residential roofing the way it was done before marketing promises replaced workmanship. {business.yearsActive} years later, we are the contractor Joburg North homeowners call when the finish matters.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-24 lg:py-32">
+    <div class="mx-auto max-w-[1280px] px-6 lg:px-10">
+      <div class="grid gap-14 lg:grid-cols-[1.1fr_1fr] lg:items-center lg:gap-20">
+        <Image
+          src={heroImg}
+          alt="Cederhof tradesman at work on a residential slate roof in Joburg North"
+          widths={[480, 720, 1080]}
+          sizes="(min-width: 1024px) 50vw, 100vw"
+          quality={84}
+          loading="lazy"
+          class="aspect-[4/5] w-full rounded-xl object-cover shadow-[0_40px_60px_-30px_rgba(23,23,23,0.3)]"
+        />
+        <div>
+          <h2 class="text-foreground">How Cederhof started.</h2>
+          <div class="mt-6 space-y-5 text-lg leading-relaxed text-foreground/75">
+            <p>
+              Johan Cederhof spent fourteen years working heritage restoration in Cape Town before moving to Joburg in 2008. What he found was a residential roofing market dominated by high-volume contractors who measured success by how many roofs they could turn over in a month.
+            </p>
+            <p>
+              In 2009 he registered Cederhof with one principle: the finish should look like someone who cared was paid to care. The first clients were Bryanston neighbours. Seventeen years later they still are, alongside architects, heritage authorities, and homeowners across Joburg North who have rebuilt the same relationship over repeat projects.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-muted py-24 lg:py-32">
+    <div class="mx-auto max-w-[1280px] px-6 lg:px-10">
+      <div class="mb-14 max-w-2xl">
+        <span class="mb-3 inline-block font-heading text-[0.7rem] font-semibold uppercase tracking-[0.16em] text-accent">
+          The team
+        </span>
+        <h2 class="text-foreground">A small team with deep tenure.</h2>
+      </div>
+      <div class="grid gap-6 md:grid-cols-3">
+        {
+          team.map((t) => (
+            <article class="rounded-xl border border-border bg-background p-8">
+              <div class="mb-4 grid h-16 w-16 place-items-center rounded-full bg-accent/10 font-heading text-xl font-bold text-accent">
+                {t.name
+                  .split(" ")
+                  .map((p) => p[0])
+                  .join("")}
+              </div>
+              <h3 class="font-heading text-xl font-bold text-foreground">{t.name}</h3>
+              <p class="mt-1 text-sm font-semibold text-accent">{t.role}</p>
+              <p class="mt-4 text-sm leading-relaxed text-foreground/75">{t.bio}</p>
+              <p class="mt-5 border-t border-border pt-3 font-heading text-[0.7rem] font-semibold uppercase tracking-[0.16em] text-foreground/60">
+                {t.years} years in the trade
+              </p>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="py-24 lg:py-32">
+    <div class="mx-auto max-w-[1280px] px-6 lg:px-10">
+      <div class="grid gap-14 lg:grid-cols-[1fr_1.3fr] lg:items-center lg:gap-20">
+        <Image
+          src={craftImg}
+          alt="Close detail of hand-laid slate showing the craft finish on a Cederhof project"
+          widths={[480, 720, 1080]}
+          sizes="(min-width: 1024px) 45vw, 100vw"
+          quality={84}
+          loading="lazy"
+          class="aspect-[4/5] w-full rounded-xl object-cover shadow-[0_40px_60px_-30px_rgba(23,23,23,0.3)]"
+        />
+        <div>
+          <span class="mb-3 inline-block font-heading text-[0.7rem] font-semibold uppercase tracking-[0.16em] text-accent">
+            How we work
+          </span>
+          <h2 class="text-foreground">Four principles, every project.</h2>
+          <ul class="mt-10 space-y-8">
+            {
+              values.map((v) => (
+                <li class="grid grid-cols-[auto_1fr] items-start gap-6">
+                  <span class="font-heading text-4xl font-black tracking-[-0.03em] text-accent/70">
+                    {v.n}
+                  </span>
+                  <div>
+                    <h3 class="font-heading text-lg font-bold text-foreground">{v.title}</h3>
+                    <p class="mt-2 text-foreground/75">{v.body}</p>
+                  </div>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-primary-dark text-on-dark">
+    <div class="mx-auto max-w-[1280px] px-6 py-24 lg:px-10 lg:py-32">
+      <div class="grid gap-14 lg:grid-cols-[1fr_1.3fr] lg:items-center">
+        <div>
+          <span class="mb-3 inline-block font-heading text-[0.7rem] font-semibold uppercase tracking-[0.16em] text-accent">
+            Credentials
+          </span>
+          <h2 class="text-on-dark">Audited by people who check the work, not just the paperwork.</h2>
+        </div>
+        <div class="grid gap-5 sm:grid-cols-3">
+          {
+            business.registrations.map((r) => (
+              <div class="rounded-lg border border-on-dark/15 bg-on-dark/5 p-6 backdrop-blur">
+                <p class="font-heading text-3xl font-black tracking-[-0.02em] text-accent">
+                  {r.short}
+                </p>
+                <p class="mt-3 text-sm text-on-dark/75">{r.long}</p>
+              </div>
+            ))
+          }
+          <div class="rounded-lg border border-on-dark/15 bg-on-dark/5 p-6 backdrop-blur">
+            <p class="font-heading text-3xl font-black tracking-[-0.02em] text-accent">10yr</p>
+            <p class="mt-3 text-sm text-on-dark/75">Workmanship guarantee on every job</p>
+          </div>
+          <div class="rounded-lg border border-on-dark/15 bg-on-dark/5 p-6 backdrop-blur">
+            <p class="font-heading text-3xl font-black tracking-[-0.02em] text-accent">48hr</p>
+            <p class="mt-3 text-sm text-on-dark/75">Response from first call to on-site quote</p>
+          </div>
+          <div class="rounded-lg border border-on-dark/15 bg-on-dark/5 p-6 backdrop-blur">
+            <p class="font-heading text-3xl font-black tracking-[-0.02em] text-accent">Est.{business.established}</p>
+            <p class="mt-3 text-sm text-on-dark/75">Same family-run company, no sell-offs</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="border-t border-on-dark/10 bg-primary-dark text-on-dark">
+    <div class="mx-auto grid max-w-[1280px] gap-12 px-6 py-24 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-center lg:gap-20 lg:px-10 lg:py-28">
+      <div class="w-full max-w-[680px]">
+        <span class="mb-5 inline-block font-heading text-[0.72rem] font-semibold uppercase tracking-[0.22em] text-accent">
+          Meet the team
+        </span>
+        <h2
+          class="text-on-dark"
+          style="font-size: clamp(1.9rem, 3vw, 2.5rem); line-height: 1.2; letter-spacing: -0.005em;"
+        >
+          Want to meet the team on site?
+        </h2>
+        <p class="mt-7 text-lg leading-[1.75] text-on-dark/75" style="max-width: 56ch;">
+          Free on-site assessment across Joburg North. You will meet the project lead who will run your job, not a salesperson.
+        </p>
+      </div>
+      <div class="flex w-full flex-col gap-3 sm:flex-row lg:w-auto lg:flex-shrink-0 lg:flex-col xl:flex-row">
+        <a href="/contact/" class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md bg-accent px-6 py-4 font-heading text-sm font-bold uppercase tracking-[0.1em] text-on-primary no-underline transition-all duration-200 hover:bg-accent-hover active:scale-[0.98]">
+          Book a site visit
+        </a>
+        <a href={whatsappHref()} rel="noopener" class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md border border-on-dark/25 bg-on-dark/5 px-6 py-4 font-heading text-sm font-bold uppercase tracking-[0.1em] text-on-dark no-underline backdrop-blur transition-all duration-200 hover:bg-on-dark/10">
+          WhatsApp {business.whatsapp}
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

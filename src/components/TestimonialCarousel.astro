@@ -1,0 +1,44 @@
+---
+import { testimonials } from "../data/testimonials";
+// Duplicate the array so the marquee can loop seamlessly.
+const strip = [...testimonials, ...testimonials];
+---
+
+<div class="relative overflow-hidden">
+  <div class="pointer-events-none absolute inset-y-0 left-0 z-10 w-24 bg-gradient-to-r from-muted to-transparent"></div>
+  <div class="pointer-events-none absolute inset-y-0 right-0 z-10 w-24 bg-gradient-to-l from-muted to-transparent"></div>
+
+  <div class="marquee py-2">
+    {
+      strip.map((t, i) => (
+        <blockquote
+          class="flex min-h-[320px] w-[85vw] max-w-[440px] flex-shrink-0 flex-col justify-between rounded-xl border border-border bg-background p-8"
+          aria-hidden={i >= testimonials.length ? "true" : undefined}
+        >
+          <div>
+            <div class="mb-4 flex gap-0.5 text-accent" aria-label={`${t.rating} out of 5 stars`}>
+              {Array.from({ length: t.rating }).map(() => (
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true">
+                  <path d="M12 2L14.39 8.25L21 9.27L16.5 13.97L17.77 20.5L12 17.27L6.23 20.5L7.5 13.97L3 9.27L9.61 8.25L12 2Z" />
+                </svg>
+              ))}
+            </div>
+            <p class="font-heading text-lg font-medium leading-snug text-foreground">
+              "{t.text}"
+            </p>
+          </div>
+          <footer class="mt-6 border-t border-border pt-4">
+            <p class="font-heading font-bold text-foreground">{t.name}</p>
+            <p class="text-sm text-foreground/60">
+              {t.material} · {t.suburb} · {t.date}
+            </p>
+          </footer>
+        </blockquote>
+      ))
+    }
+  </div>
+
+  <p class="mt-4 px-6 text-center text-[0.7rem] font-semibold uppercase tracking-[0.16em] text-foreground/50 lg:px-10">
+    Hover to pause
+  </p>
+</div>

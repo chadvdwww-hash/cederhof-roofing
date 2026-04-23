@@ -1,0 +1,30 @@
+---
+interface Props {
+  height?: string;
+}
+const { height = "520px" } = Astro.props;
+// Joburg North bounding box covering Dainfern in the NW through Parkhurst in the south,
+// Sandton and Rivonia on the east. Embed uses the standard public Maps embed URL,
+// no API key required.
+const src =
+  "https://www.google.com/maps?q=Bryanston,%20Johannesburg,%20Gauteng&output=embed&hl=en&z=12&t=m";
+---
+
+<div
+  class="relative overflow-hidden rounded-xl border border-border bg-muted shadow-[0_24px_50px_-32px_rgba(15,15,15,0.35)]"
+  style={`height: ${height};`}
+>
+  <iframe
+    src={src}
+    title="Cederhof Roofing service area map, Johannesburg North"
+    loading="lazy"
+    referrerpolicy="no-referrer-when-downgrade"
+    allowfullscreen
+    class="h-full w-full border-0 grayscale-[30%] contrast-[1.05]"
+  ></iframe>
+  <div
+    class="pointer-events-none absolute left-4 top-4 rounded-full bg-primary-dark/85 px-3 py-1 font-heading text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-on-dark backdrop-blur"
+  >
+    Johannesburg North
+  </div>
+</div>

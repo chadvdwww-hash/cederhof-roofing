@@ -1,0 +1,147 @@
+{
+  "slate-tile-roof": [
+    {
+      "filename": "slate-tile-roof-1.jpg",
+      "alt": "Aesthetic overhead view of gray tiled rooftops in a quaint residential neighborhood with lush greenery.",
+      "photographer": "Horst Joachims",
+      "photographerUrl": "https://www.pexels.com/@horst-joachims-282933937",
+      "width": 6000,
+      "height": 4000,
+      "pexelsUrl": "https://www.pexels.com/photo/houses-with-gray-roofs-13075346/"
+    },
+    {
+      "filename": "slate-tile-roof-2.jpg",
+      "alt": "Close-up view of a traditional European building roofline featuring windows and slate roofing.",
+      "photographer": "Textgrounds",
+      "photographerUrl": "https://www.pexels.com/@textgrounds",
+      "width": 6000,
+      "height": 4000,
+      "pexelsUrl": "https://www.pexels.com/photo/close-up-of-a-windows-in-the-roof-of-a-tenement-house-5259822/"
+    },
+    {
+      "filename": "slate-tile-roof-3.jpg",
+      "alt": "Close-up shot of vintage clay roof tiles with visible moss, showcasing texture and age.",
+      "photographer": "Jan van der Wolf",
+      "photographerUrl": "https://www.pexels.com/@jan-van-der-wolf-11680885",
+      "width": 6000,
+      "height": 4000,
+      "pexelsUrl": "https://www.pexels.com/photo/rooftop-with-ceramic-tiles-18349121/"
+    }
+  ],
+  "clay-tile-roof": [
+    {
+      "filename": "clay-tile-roof-1.jpg",
+      "alt": "High-resolution image of overlapping clay roof tiles displaying a classic rustic pattern.",
+      "photographer": "Bunyamin Cicek",
+      "photographerUrl": "https://www.pexels.com/@bunyamin-cicek-1196000323",
+      "width": 7952,
+      "height": 5304,
+      "pexelsUrl": "https://www.pexels.com/photo/a-close-up-of-a-red-clay-roof-27806095/"
+    },
+    {
+      "filename": "clay-tile-roof-2.jpg",
+      "alt": "Aerial view of a textured red clay tile roof with a repeating pattern.",
+      "photographer": "Bunyamin Cicek",
+      "photographerUrl": "https://www.pexels.com/@bunyamin-cicek-1196000323",
+      "width": 7952,
+      "height": 5304,
+      "pexelsUrl": "https://www.pexels.com/photo/a-red-clay-roof-with-a-red-tile-pattern-27806097/"
+    },
+    {
+      "filename": "clay-tile-roof-3.jpg",
+      "alt": "A close-up view of rustic, weathered clay roof shingles under a clear sky in Puebla, Mexico.",
+      "photographer": "Miguel Á. Padriñán",
+      "photographerUrl": "https://www.pexels.com/@padrinan",
+      "width": 6016,
+      "height": 4000,
+      "pexelsUrl": "https://www.pexels.com/photo/selective-focus-photo-of-brown-roof-shingles-1453799/"
+    }
+  ],
+  "luxury-home-exterior": [
+    {
+      "filename": "luxury-home-exterior-1.jpg",
+      "alt": "Contemporary house with pool, green lawn, and clear sky view.",
+      "photographer": "Max Vakhtbovych",
+      "photographerUrl": "https://www.pexels.com/@artbovich",
+      "width": 7334,
+      "height": 4895,
+      "pexelsUrl": "https://www.pexels.com/photo/backyard-swimming-pool-under-blue-sky-8134748/"
+    },
+    {
+      "filename": "luxury-home-exterior-2.jpg",
+      "alt": "Exterior architecture of private suburban cottage house with stone and wooden facade and large windows overlooking spacious snow covered yard in winter day",
+      "photographer": "Max Vakhtbovych",
+      "photographerUrl": "https://www.pexels.com/@artbovich",
+      "width": 7360,
+      "height": 4912,
+      "pexelsUrl": "https://www.pexels.com/photo/luxurious-cottage-house-facade-in-winter-7031408/"
+    },
+    {
+      "filename": "luxury-home-exterior-3.jpg",
+      "alt": "Luxury estate with manicured lawn and modern architectural design on a sunny day.",
+      "photographer": "Max Vakhtbovych",
+      "photographerUrl": "https://www.pexels.com/@artbovich",
+      "width": 7342,
+      "height": 4900,
+      "pexelsUrl": "https://www.pexels.com/photo/view-of-a-mansion-8143668/"
+    }
+  ],
+  "roof-installation-worker": [
+    {
+      "filename": "roof-installation-worker-1.jpg",
+      "alt": "Two construction workers installing roof tiles on a building under a clear blue sky.",
+      "photographer": "女子 正真",
+      "photographerUrl": "https://www.pexels.com/@1433506698",
+      "width": 7008,
+      "height": 4672,
+      "pexelsUrl": "https://www.pexels.com/photo/construction-workers-installing-roof-tiles-on-building-33944130/"
+    },
+    {
+      "filename": "roof-installation-worker-2.jpg",
+      "alt": "Roofer using nail gun for shingle installation on residential roof.",
+      "photographer": "Ryan  Stephens",
+      "photographerUrl": "https://www.pexels.com/@rstephens",
+      "width": 6359,
+      "height": 4239,
+      "pexelsUrl": "https://www.pexels.com/photo/professional-roofer-installing-shingles-on-new-roof-33404248/"
+    },
+    {
+      "filename": "roof-installation-worker-3.jpg",
+      "alt": "Team installing solar panels on a large rooftop under a clear sky, promoting renewable energy.",
+      "photographer": "Trinh Trần",
+      "photographerUrl": "https://www.pexels.com/@trinh-tr-n-191284110",
+      "width": 6000,
+      "height": 4000,
+      "pexelsUrl": "https://www.pexels.com/photo/workers-installing-solar-on-the-roof-11644973/"
+    }
+  ],
+  "golden-hour-modern-house": [
+    {
+      "filename": "golden-hour-modern-house-1.jpg",
+      "alt": "A serene image of suburban buildings and parking lot during golden hour.",
+      "photographer": "NITIN CHAUHAN",
+      "photographerUrl": "https://www.pexels.com/@photographwithart",
+      "width": 6240,
+      "height": 4160,
+      "pexelsUrl": "https://www.pexels.com/photo/buildings-in-village-16370166/"
+    },
+    {
+      "filename": "golden-hour-modern-house-2.jpg",
+      "alt": "A charming stone house bathed in warm golden hour light creates a serene scene.",
+      "photographer": "Lensloji",
+      "photographerUrl": "https://www.pexels.com/@lensloji-264847388",
+      "width": 6000,
+      "height": 4000,
+      "pexelsUrl": "https://www.pexels.com/photo/trees-growing-by-a-house-18334754/"
+    },
+    {
+      "filename": "golden-hour-modern-house-3.jpg",
+      "alt": "A picturesque view of a Mediterranean villa under a warm, golden sky.",
+      "photographer": "Agung Pandit Wiguna",
+      "photographerUrl": "https://www.pexels.com/@panditwiguna",
+      "width": 6000,
+      "height": 4000,
+      "pexelsUrl": "https://www.pexels.com/photo/sunlit-mediterranean-style-villa-exterior-34939808/"
+    }
+  ]
+}

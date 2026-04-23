@@ -1,0 +1,6 @@
+---
+import AreaPage from "../../components/AreaPage.astro";
+import { getArea } from "../../data/areas";
+const area = getArea("dainfern")!;
+---
+<AreaPage area={area} />

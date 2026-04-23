@@ -1,0 +1,186 @@
+---
+import { business, whatsappHref, telHref } from "../data/business";
+import { services } from "../data/services";
+import { areas } from "../data/areas";
+---
+
+<footer class="bg-primary-dark text-on-dark">
+  <div class="mx-auto max-w-[1280px] px-6 py-20 lg:px-10">
+    <div class="grid gap-12 lg:grid-cols-[1.3fr_1fr_1fr_1.2fr]">
+      <div>
+        <a href="/" class="mb-6 inline-flex items-center gap-3 text-on-dark no-underline">
+          <span class="grid h-12 w-12 place-items-center rounded-md bg-accent text-primary-dark shadow-[0_10px_24px_-12px_rgba(234,179,8,0.55)]">
+            <svg viewBox="0 0 48 48" width="30" height="30" aria-hidden="true">
+              <path
+                d="M7 30 L24 12 L41 30"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="3.6"
+                stroke-linejoin="round"
+                stroke-linecap="round"
+              />
+              <path
+                d="M14 30 L24 20 L34 30"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linejoin="round"
+                stroke-linecap="round"
+                opacity="0.55"
+              />
+              <path
+                d="M9 36 L39 36"
+                stroke="currentColor"
+                stroke-width="3"
+                stroke-linecap="round"
+              />
+            </svg>
+          </span>
+          <span class="flex flex-col leading-none">
+            <span class="font-heading text-[0.58rem] font-bold uppercase tracking-[0.28em] text-accent">
+              Est. {business.established}
+            </span>
+            <span class="mt-1.5 font-heading text-2xl font-black uppercase tracking-[-0.015em] text-on-dark">
+              {business.name}
+            </span>
+          </span>
+        </a>
+        <p class="max-w-sm text-sm leading-relaxed text-on-dark/70">
+          Premium residential roofing for Johannesburg North since {business.established}.
+          Slate, clay tile, concrete tile, full re-roofing, and waterproofing for heritage
+          and estate homes. MBSA member.
+        </p>
+        <div class="mt-6 flex flex-wrap gap-2">
+          {
+            business.registrations.map((r) => (
+              <span class="inline-flex items-center rounded-full border border-on-dark/15 bg-on-dark/5 px-3 py-1 text-[0.7rem] font-semibold uppercase tracking-[0.14em] text-on-dark/80">
+                {r.short}
+              </span>
+            ))
+          }
+        </div>
+      </div>
+
+      <div>
+        <h3 class="mb-4 font-heading text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-accent">
+          Services
+        </h3>
+        <ul class="space-y-2.5">
+          {
+            services.map((s) => (
+              <li>
+                <a
+                  href={`/services/${s.slug}/`}
+                  class="text-sm text-on-dark/70 no-underline transition-colors hover:text-accent"
+                >
+                  {s.name}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="mb-4 font-heading text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-accent">
+          Service areas
+        </h3>
+        <ul class="space-y-2.5">
+          {
+            areas.map((a) => (
+              <li>
+                <a
+                  href={`/areas/${a.slug}/`}
+                  class="text-sm text-on-dark/70 no-underline transition-colors hover:text-accent"
+                >
+                  {a.name}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="mb-4 font-heading text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-accent">
+          Contact
+        </h3>
+        <address class="mb-5 not-italic text-sm leading-relaxed text-on-dark/70">
+          {business.address.line1}<br />
+          {business.address.city}, {business.address.region} {business.address.postalCode}<br />
+          South Africa
+        </address>
+        <ul class="mb-5 space-y-2.5">
+          <li>
+            <a href={telHref()} class="text-sm tabular-nums text-on-dark no-underline hover:text-accent">
+              {business.phone}
+            </a>
+          </li>
+          <li>
+            <a
+              href={whatsappHref()}
+              class="text-sm tabular-nums text-on-dark no-underline hover:text-accent"
+              rel="noopener"
+            >
+              WhatsApp {business.whatsapp}
+            </a>
+          </li>
+          <li>
+            <a
+              href={`mailto:${business.email}`}
+              class="text-sm text-on-dark no-underline hover:text-accent"
+            >
+              {business.email}
+            </a>
+          </li>
+        </ul>
+
+        <h4 class="mb-3 font-heading text-[0.68rem] font-semibold uppercase tracking-[0.14em] text-on-dark/50">
+          Business hours
+        </h4>
+        <ul class="space-y-1 text-[0.82rem] text-on-dark/70">
+          {
+            business.hours.map((h) => (
+              <li class="flex justify-between gap-4">
+                <span>{h.short}</span>
+                <span class="tabular-nums">
+                  {h.closed ? "Closed" : `${h.open} – ${h.close}`}
+                </span>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-16 border-t border-on-dark/10 pt-8">
+      <div
+        role="note"
+        class="mb-6 flex items-start gap-3 rounded-md border border-accent/30 bg-accent/5 p-4 text-[0.78rem] leading-relaxed text-on-dark/80"
+      >
+        <span
+          class="mt-0.5 inline-flex shrink-0 items-center rounded-full bg-accent px-2 py-0.5 font-heading text-[0.6rem] font-bold uppercase tracking-[0.16em] text-on-primary"
+          aria-hidden="true"
+        >
+          Demo
+        </span>
+        <span>
+          <strong class="font-semibold text-on-dark">This is a demo website.</strong>
+          Cederhof Roofing is a fictional business built by KILO Agency as a
+          portfolio example. Names, phone numbers, reviews, pricing and
+          projects are invented. Do not try to contact this company.
+        </span>
+      </div>
+
+      <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+        <p class="text-xs text-on-dark/50">
+          © {new Date().getFullYear()} {business.name}. All rights reserved.
+          {business.yearsActive} years of craft. Est. {business.established}.
+        </p>
+        <p class="text-[0.7rem] font-semibold uppercase tracking-[0.14em] text-on-dark/40">
+          Built by KILO Agency
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>

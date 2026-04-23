@@ -1,0 +1,122 @@
+---
+import { Image } from "astro:assets";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import { business, whatsappHref, telHref } from "../../data/business";
+import { services } from "../../data/services";
+import heroImg from "../../assets/images/stock/luxury-home-exterior-3.jpg";
+
+const glob = import.meta.glob<{ default: ImageMetadata }>(
+  "../../assets/images/stock/*.jpg",
+  { eager: true }
+);
+function pick(f: string): ImageMetadata {
+  return glob[`../../assets/images/stock/${f}`].default;
+}
+
+const breadcrumbs = [
+  { name: "Home", href: "/" },
+  { name: "Services", href: "/services/" },
+];
+---
+
+<BaseLayout
+  title="Roofing Services for Heritage and Estate Homes | Cederhof Roofing"
+  description="Craft-led roofing across slate, clay tile, concrete tile, re-roofing, waterproofing. Serving Joburg North estate homes since 2009."
+  breadcrumbs={breadcrumbs}
+>
+  <section class="relative min-h-[60dvh] overflow-hidden">
+    <Image
+      src={heroImg}
+      alt="Residential home in Johannesburg North showing a carefully finished tile roof"
+      widths={[640, 1024, 1600, 2200]}
+      sizes="100vw"
+      quality={84}
+      loading="eager"
+      fetchpriority="high"
+      class="absolute inset-0 h-full w-full object-cover"
+    />
+    <div class="absolute inset-0 bg-gradient-to-r from-primary-dark via-primary-dark/85 to-primary-dark/40" aria-hidden="true"></div>
+
+    <div class="relative mx-auto flex min-h-[60dvh] max-w-[1280px] flex-col justify-end px-6 pb-16 pt-32 lg:px-10 lg:pb-20">
+      <div class="max-w-3xl">
+        <span class="mb-5 inline-block font-heading text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-on-dark/75">
+          Services
+        </span>
+        <h1 class="mb-5 font-heading text-on-dark" style="font-size: clamp(2.25rem, 5vw, 4rem); font-weight: 700; line-height: 1.05;">
+          Five services. One standard of craft.
+        </h1>
+        <p class="max-w-2xl text-lg text-on-dark/75 md:text-xl">
+          We don't try to be everything. We do slate, clay tile, concrete tile, full re-roofing, and waterproofing, finished to the standard the home deserves.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-24 lg:py-32">
+    <div class="mx-auto max-w-[1280px] px-6 lg:px-10">
+      <Breadcrumbs items={breadcrumbs} />
+
+      <div class="space-y-20 lg:space-y-28">
+        {
+          services.map((s, i) => (
+            <article class="grid gap-10 lg:grid-cols-[1.1fr_1fr] lg:items-center lg:gap-20">
+              <div class={i % 2 === 1 ? "lg:order-2" : ""}>
+                <Image
+                  src={pick(s.heroImage)}
+                  alt={`${s.name} by Cederhof Roofing`}
+                  widths={[480, 720, 1080]}
+                  sizes="(min-width: 1024px) 50vw, 100vw"
+                  quality={84}
+                  loading="lazy"
+                  class="aspect-[4/3] w-full rounded-xl object-cover shadow-[0_40px_60px_-30px_rgba(23,23,23,0.3)]"
+                />
+              </div>
+              <div class={i % 2 === 1 ? "lg:order-1" : ""}>
+                <span class="mb-3 inline-block font-heading text-[0.7rem] font-semibold uppercase tracking-[0.16em] text-accent">
+                  {String(i + 1).padStart(2, "0")} · {s.name}
+                </span>
+                <h2 class="font-heading text-foreground" style="font-size: clamp(1.8rem, 3vw, 2.5rem); font-weight: 700;">{s.h1}</h2>
+                <p class="mt-5 text-lg leading-relaxed text-foreground/75">{s.subheadline}</p>
+                <a
+                  href={`/services/${s.slug}/`}
+                  class="mt-8 inline-flex items-center gap-2 rounded-md border border-foreground/15 px-5 py-3 text-sm font-semibold text-foreground no-underline transition-colors hover:border-accent hover:text-accent"
+                >
+                  Read more
+                  <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M5 12H19M13 6L19 12L13 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" /></svg>
+                </a>
+              </div>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-primary-dark text-on-dark">
+    <div class="mx-auto grid max-w-[1280px] gap-12 px-6 py-24 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-center lg:gap-20 lg:px-10 lg:py-28">
+      <div class="w-full max-w-[680px]">
+        <span class="mb-5 inline-block font-heading text-[0.72rem] font-semibold uppercase tracking-[0.22em] text-accent">
+          Free advice
+        </span>
+        <h2
+          class="text-on-dark"
+          style="font-size: clamp(1.9rem, 3vw, 2.5rem); line-height: 1.2; letter-spacing: -0.005em;"
+        >
+          Not sure which service you need?
+        </h2>
+        <p class="mt-7 text-lg leading-[1.75] text-on-dark/75" style="max-width: 56ch;">
+          Send us a WhatsApp with a photo of the roof. We will tell you what the job is, what it costs, and when we can be on site.
+        </p>
+      </div>
+      <div class="flex w-full flex-col gap-3 sm:flex-row lg:w-auto lg:flex-shrink-0 lg:flex-col xl:flex-row">
+        <a href={whatsappHref()} rel="noopener" class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md bg-accent px-6 py-4 font-heading text-sm font-bold uppercase tracking-[0.1em] text-on-primary no-underline transition-all duration-200 hover:bg-accent-hover active:scale-[0.98]">
+          WhatsApp {business.whatsapp}
+        </a>
+        <a href={telHref()} class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md border border-on-dark/25 bg-on-dark/5 px-6 py-4 font-heading text-sm font-bold uppercase tracking-[0.1em] text-on-dark no-underline backdrop-blur transition-all duration-200 hover:bg-on-dark/10">
+          Call {business.phone}
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
