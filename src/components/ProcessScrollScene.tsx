@@ -210,11 +210,8 @@ export default function ProcessScrollScene({ steps, images }: Props) {
         <span
           ref={watermarkRef}
           aria-hidden="true"
-          className="pointer-events-none absolute select-none font-heading font-black uppercase leading-[0.82] tracking-[-0.06em] text-accent"
+          className="pointer-events-none absolute left-[-0.02em] bottom-[-0.02em] select-none font-heading text-[clamp(7rem,30vw,18rem)] font-black uppercase leading-[0.82] tracking-[-0.06em] text-accent sm:bottom-[-0.08em] sm:text-[clamp(11rem,38vw,30rem)] lg:left-[-0.04em] lg:bottom-[-0.12em] lg:text-[clamp(18rem,46vw,52rem)]"
           style={{
-            left: "-0.04em",
-            bottom: "-0.12em",
-            fontSize: "clamp(11rem, 42vw, 52rem)",
             opacity: 0.18,
             mixBlendMode: "screen",
           }}

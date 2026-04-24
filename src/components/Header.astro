@@ -101,6 +101,6 @@ const areasFlat = areas.map((a) => ({ label: a.name, href: `/areas/${a.slug}/` }
       </a>
     </div>
 
-    <MobileNav client:visible nav={nav} services={servicesFlat} areas={areasFlat} />
+    <MobileNav client:load nav={nav} services={servicesFlat} areas={areasFlat} />
   </div>
 </header>
