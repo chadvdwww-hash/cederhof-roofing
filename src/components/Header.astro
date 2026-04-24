@@ -1,6 +1,5 @@
 ---
-import MobileNav from "./MobileNav.tsx";
-import { business, telHref } from "../data/business";
+import { business, telHref, whatsappHref } from "../data/business";
 import { services } from "../data/services";
 import { areas } from "../data/areas";
 
@@ -11,9 +10,6 @@ const nav = [
   { label: "About", href: "/about/" },
   { label: "Contact", href: "/contact/" },
 ];
-
-const servicesFlat = services.map((s) => ({ label: s.name, href: `/services/${s.slug}/` }));
-const areasFlat = areas.map((a) => ({ label: a.name, href: `/areas/${a.slug}/` }));
 ---
 
 <header
@@ -101,6 +97,210 @@ const areasFlat = areas.map((a) => ({ label: a.name, href: `/areas/${a.slug}/` }
       </a>
     </div>
 
-    <MobileNav client:load nav={nav} services={servicesFlat} areas={areasFlat} />
+    <button
+      type="button"
+      id="kilo-nav-toggle"
+      aria-label="Open menu"
+      aria-expanded="false"
+      aria-controls="kilo-mobile-nav"
+      class="grid h-11 w-11 place-items-center rounded-md border border-border text-foreground transition-colors hover:bg-muted lg:hidden"
+      style="-webkit-tap-highlight-color: transparent; touch-action: manipulation;"
+    >
+      <svg
+        data-icon="open"
+        viewBox="0 0 24 24"
+        width="22"
+        height="22"
+        aria-hidden="true"
+      >
+        <path
+          d="M4 7H20M4 12H20M4 17H20"
+          stroke="currentColor"
+          stroke-width="1.8"
+          stroke-linecap="round"
+        />
+      </svg>
+      <svg
+        data-icon="close"
+        viewBox="0 0 24 24"
+        width="20"
+        height="20"
+        aria-hidden="true"
+        class="hidden"
+      >
+        <path
+          d="M6 6L18 18M18 6L6 18"
+          stroke="currentColor"
+          stroke-width="1.8"
+          stroke-linecap="round"
+        />
+      </svg>
+    </button>
   </div>
 </header>
+
+<div
+  id="kilo-mobile-backdrop"
+  class="pointer-events-none fixed inset-0 z-[49] bg-primary-dark/75 opacity-0 backdrop-blur-sm transition-opacity duration-300 ease-out data-[open=true]:pointer-events-auto data-[open=true]:opacity-100 lg:hidden"
+  data-open="false"
+  aria-hidden="true"
+></div>
+
+<aside
+  id="kilo-mobile-nav"
+  role="dialog"
+  aria-modal="true"
+  aria-label="Navigation menu"
+  class="fixed right-0 top-0 z-[50] flex h-[100dvh] w-[92vw] max-w-sm translate-x-full flex-col overflow-y-auto bg-background shadow-2xl transition-transform duration-300 ease-out data-[open=true]:translate-x-0 lg:hidden"
+  data-open="false"
+>
+  <div class="flex items-center justify-between border-b border-border px-6 py-4">
+    <span class="font-heading text-lg font-black uppercase tracking-[-0.01em] text-foreground">
+      Menu
+    </span>
+    <button
+      type="button"
+      data-kilo-nav-close
+      aria-label="Close menu"
+      class="grid h-10 w-10 place-items-center rounded-md border border-border text-foreground hover:bg-muted"
+      style="-webkit-tap-highlight-color: transparent; touch-action: manipulation;"
+    >
+      <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+        <path
+          d="M6 6L18 18M18 6L6 18"
+          stroke="currentColor"
+          stroke-width="1.8"
+          stroke-linecap="round"
+        />
+      </svg>
+    </button>
+  </div>
+
+  <nav class="flex flex-col gap-7 px-6 py-7">
+    <ul class="flex flex-col gap-1">
+      {
+        nav.map((item) => (
+          <li>
+            <a
+              href={item.href}
+              data-kilo-nav-link
+              class="block rounded-md px-3 py-3 font-heading text-xl font-black uppercase tracking-[-0.015em] text-foreground no-underline hover:bg-muted"
+            >
+              {item.label}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+
+    <div>
+      <div class="mb-2 font-heading text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-foreground/55">
+        Services
+      </div>
+      <ul class="flex flex-col">
+        {
+          services.map((s) => (
+            <li>
+              <a
+                href={`/services/${s.slug}/`}
+                data-kilo-nav-link
+                class="block py-2 text-sm text-foreground/80 no-underline hover:text-accent"
+              >
+                {s.name}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+
+    <div>
+      <div class="mb-2 font-heading text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-foreground/55">
+        Service areas
+      </div>
+      <ul class="flex flex-col">
+        {
+          areas.map((a) => (
+            <li>
+              <a
+                href={`/areas/${a.slug}/`}
+                data-kilo-nav-link
+                class="block py-2 text-sm text-foreground/80 no-underline hover:text-accent"
+              >
+                {a.name}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+
+    <div class="flex flex-col gap-3 border-t border-border pt-5">
+      <a
+        href="/contact/"
+        data-kilo-nav-link
+        class="inline-flex w-full items-center justify-center gap-2 rounded-md bg-accent px-4 py-3 font-heading text-sm font-bold uppercase tracking-[0.08em] text-on-primary no-underline hover:bg-accent-hover"
+      >
+        Get a free quote
+      </a>
+      <a
+        href={whatsappHref()}
+        rel="noopener"
+        data-kilo-nav-link
+        class="inline-flex w-full items-center justify-center gap-2 rounded-md border border-border px-4 py-3 font-heading text-sm font-bold uppercase tracking-[0.08em] text-foreground no-underline hover:bg-muted"
+      >
+        WhatsApp {business.whatsapp}
+      </a>
+      <a
+        href={telHref()}
+        data-kilo-nav-link
+        class="text-center font-heading text-sm font-semibold tabular-nums text-foreground/75 no-underline hover:text-accent"
+      >
+        Call {business.phone}
+      </a>
+    </div>
+  </nav>
+</aside>
+
+<script>
+  const toggle = document.getElementById("kilo-nav-toggle");
+  const aside = document.getElementById("kilo-mobile-nav");
+  const backdrop = document.getElementById("kilo-mobile-backdrop");
+  const closeBtns = document.querySelectorAll<HTMLElement>("[data-kilo-nav-close]");
+  const links = document.querySelectorAll<HTMLAnchorElement>("[data-kilo-nav-link]");
+
+  if (toggle && aside && backdrop) {
+    const iconOpen = toggle.querySelector<SVGElement>('[data-icon="open"]');
+    const iconClose = toggle.querySelector<SVGElement>('[data-icon="close"]');
+
+    const setOpen = (open: boolean) => {
+      aside.setAttribute("data-open", String(open));
+      backdrop.setAttribute("data-open", String(open));
+      toggle.setAttribute("aria-expanded", String(open));
+      toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+      document.body.style.overflow = open ? "hidden" : "";
+      if (iconOpen) iconOpen.classList.toggle("hidden", open);
+      if (iconClose) iconClose.classList.toggle("hidden", !open);
+    };
+
+    toggle.addEventListener("click", () => {
+      const next = aside.getAttribute("data-open") !== "true";
+      setOpen(next);
+    });
+
+    backdrop.addEventListener("click", () => setOpen(false));
+    closeBtns.forEach((btn) => btn.addEventListener("click", () => setOpen(false)));
+    links.forEach((link) => link.addEventListener("click", () => setOpen(false)));
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") setOpen(false);
+    });
+
+    // Reset state when viewport crosses into desktop.
+    const mq = window.matchMedia("(min-width: 1024px)");
+    const onMq = () => {
+      if (mq.matches) setOpen(false);
+    };
+    mq.addEventListener("change", onMq);
+  }
+</script>
