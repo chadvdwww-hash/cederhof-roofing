@@ -152,15 +152,18 @@ p { text-wrap: pretty; max-width: 68ch; }
   }
 }
 
-/* Marquee */
-.marquee {
+/* Testimonial ticker strip (do NOT rename to .marquee, <marquee> is a valid
+   HTML element so Tailwind v4's compiler strips the leading dot on class
+   selectors that match element names). */
+.ticker-strip {
   display: flex;
   gap: 1.5rem;
-  animation: marquee-scroll 40s linear infinite;
+  width: max-content;
+  animation: ticker-scroll 40s linear infinite;
   will-change: transform;
 }
-.marquee:hover { animation-play-state: paused; }
-@keyframes marquee-scroll {
+.ticker-strip:hover { animation-play-state: paused; }
+@keyframes ticker-scroll {
   from { transform: translateX(0); }
   to { transform: translateX(-50%); }
 }
@@ -174,5 +177,5 @@ p { text-wrap: pretty; max-width: 68ch; }
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
-  .marquee { animation: none !important; }
+  .ticker-strip { animation: none !important; }
 }
