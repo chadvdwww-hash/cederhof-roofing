@@ -1,0 +1,642 @@
+- generic [active] [ref=e1]:
+  - link "Skip to main content" [ref=e2] [cursor=pointer]:
+    - /url: "#main"
+  - banner [ref=e3]:
+    - generic [ref=e4]:
+      - link "Cederhof Roofing home" [ref=e5] [cursor=pointer]:
+        - /url: /
+        - img [ref=e7]
+        - generic [ref=e11]:
+          - generic [ref=e12]: Est. 2009
+          - generic [ref=e13]: Cederhof Roofing
+      - navigation "Primary" [ref=e14]:
+        - link "Services" [ref=e15] [cursor=pointer]:
+          - /url: /services/
+        - link "Portfolio" [ref=e16] [cursor=pointer]:
+          - /url: /portfolio/
+        - link "Areas" [ref=e17] [cursor=pointer]:
+          - /url: /areas/
+        - link "About" [ref=e18] [cursor=pointer]:
+          - /url: /about/
+        - link "Contact" [ref=e19] [cursor=pointer]:
+          - /url: /contact/
+      - generic [ref=e20]:
+        - link "Call 011 234 5678" [ref=e21] [cursor=pointer]:
+          - /url: tel:+27112345678
+          - text: 011 234 5678
+        - link "Get a free quote" [ref=e22] [cursor=pointer]:
+          - /url: /contact/
+  - main [ref=e23]:
+    - generic [ref=e24]:
+      - img "Golden-hour view across a premium residential property in Johannesburg North with a carefully finished roof line" [ref=e26]
+      - generic [ref=e29]:
+        - generic [ref=e30]:
+          - generic [ref=e31]: MBSA Member · Est. 2009 · Joburg North
+          - heading "Roofs finished by hand, built to outlast the home beneath them." [level=1] [ref=e33]
+          - paragraph [ref=e34]: Slate, clay tile, concrete tile, and full re-roofing for heritage and estate homes across Dainfern, Sandton, Bryanston, and Hyde Park.
+          - paragraph [ref=e35]: Seventeen years of craft. A ten-year workmanship guarantee. A written, itemised quote inside forty-eight hours, delivered to your door by the tradesman who will run the job.
+          - generic [ref=e36]:
+            - link "Get a free quote" [ref=e37] [cursor=pointer]:
+              - /url: "#quote"
+              - text: Get a free quote
+              - img [ref=e38]
+            - link "WhatsApp us" [ref=e40] [cursor=pointer]:
+              - /url: https://wa.me/27826543210?text=Hi%20Cederhof%2C%20I'd%20like%20a%20free%20roof%20assessment%20for%20my%20home.
+            - link "Or call 011 234 5678" [ref=e41] [cursor=pointer]:
+              - /url: tel:+27112345678
+          - list [ref=e42]:
+            - listitem [ref=e43]: 17 years of craft
+            - listitem [ref=e45]: 234 roofs restored
+            - listitem [ref=e47]: 10-year guarantee
+            - listitem [ref=e49]: MBSA, CIPC, PIRB
+        - form "Quick quote request" [ref=e53]:
+          - paragraph [ref=e54]: Quick quote
+          - heading "Free on-site assessment in 48 hours." [level=2] [ref=e55]
+          - generic [ref=e56]:
+            - generic [ref=e57]: Your name
+            - textbox "Your name" [ref=e58]
+            - generic [ref=e59]: Phone number
+            - textbox "Phone number" [ref=e60]:
+              - /placeholder: Phone, e.g. 082 123 4567
+            - generic [ref=e61]: Service needed
+            - combobox "Service needed" [ref=e62]:
+              - option "What do you need?" [disabled] [selected]
+              - option "Full re-roofing"
+              - option "Slate roofing"
+              - option "Clay tile roofing"
+              - option "Concrete tile roofing"
+              - option "Waterproofing / flashing"
+              - option "Not sure, I need advice"
+            - button "Get my free quote" [ref=e63] [cursor=pointer]:
+              - text: Get my free quote
+              - img [ref=e64]
+            - paragraph [ref=e66]: We respond inside 48 hours. No obligation, no pushy sales.
+      - generic [ref=e68]: Scroll
+    - generic [ref=e72]:
+      - generic [ref=e73]:
+        - generic [ref=e74]: Est.
+        - generic [ref=e75]: "2009"
+      - generic [ref=e76]:
+        - generic [ref=e77]: Member
+        - generic [ref=e78]: MBSA
+      - generic [ref=e79]:
+        - generic [ref=e80]: Guarantee
+        - generic [ref=e81]: 10-year workmanship
+      - generic [ref=e82]:
+        - generic [ref=e83]: Response
+        - generic [ref=e84]: 48-hour quote
+    - generic [ref=e86]:
+      - generic [ref=e87]:
+        - generic [ref=e88]:
+          - generic [ref=e89]: Services
+          - heading "Five focused services. Done to a single standard." [level=2] [ref=e90]
+        - paragraph [ref=e91]: We do not try to be everything. We do slate, clay tile, concrete tile, full re-roofing, and waterproofing, and we finish them to the standard the home deserves.
+      - generic [ref=e92]:
+        - link "01 Slate Roofing Hand-laid slate for heritage and estate homes Learn more" [ref=e94] [cursor=pointer]:
+          - /url: /services/slate-roofing/
+          - generic [ref=e95]:
+            - text: "01"
+            - heading "Slate Roofing" [level=3] [ref=e96]
+            - paragraph [ref=e97]: Hand-laid slate for heritage and estate homes
+          - generic [ref=e98]:
+            - text: Learn more
+            - img [ref=e99]
+        - link "02 Clay Tile Roofing Marseille and specialty clay tile for period homes Learn more" [ref=e102] [cursor=pointer]:
+          - /url: /services/clay-tile-roofing/
+          - generic [ref=e103]:
+            - text: "02"
+            - heading "Clay Tile Roofing" [level=3] [ref=e104]
+            - paragraph [ref=e105]: Marseille and specialty clay tile for period homes
+          - generic [ref=e106]:
+            - text: Learn more
+            - img [ref=e107]
+        - link "03 Concrete Tile Roofing Coverland and specialty concrete tile replacement Learn more" [ref=e110] [cursor=pointer]:
+          - /url: /services/concrete-tile-roofing/
+          - generic [ref=e111]:
+            - text: "03"
+            - heading "Concrete Tile Roofing" [level=3] [ref=e112]
+            - paragraph [ref=e113]: Coverland and specialty concrete tile replacement
+          - generic [ref=e114]:
+            - text: Learn more
+            - img [ref=e115]
+        - link "04 Full Re-Roofing Complete re-roof projects for R5m+ homes Learn more" [ref=e118] [cursor=pointer]:
+          - /url: /services/re-roofing/
+          - generic [ref=e119]:
+            - text: "04"
+            - heading "Full Re-Roofing" [level=3] [ref=e120]
+            - paragraph [ref=e121]: Complete re-roof projects for R5m+ homes
+          - generic [ref=e122]:
+            - text: Learn more
+            - img [ref=e123]
+        - link "05 Waterproofing & Flashing Membrane, torch-on, flashing and emergency response Learn more" [ref=e126] [cursor=pointer]:
+          - /url: /services/waterproofing/
+          - generic [ref=e127]:
+            - text: "05"
+            - heading "Waterproofing & Flashing" [level=3] [ref=e128]
+            - paragraph [ref=e129]: Membrane, torch-on, flashing and emergency response
+          - generic [ref=e130]:
+            - text: Learn more
+            - img [ref=e131]
+        - link "06 See every service Deep pages on each material with pricing, process, and honest FAQs. All services" [ref=e133] [cursor=pointer]:
+          - /url: /services/
+          - generic [ref=e134]:
+            - text: "06"
+            - heading "See every service" [level=3] [ref=e135]
+            - paragraph [ref=e136]: Deep pages on each material with pricing, process, and honest FAQs.
+          - generic [ref=e137]:
+            - text: All services
+            - img [ref=e138]
+    - generic [ref=e141]:
+      - img "Close overhead view of a hand-laid slate roof on a Joburg heritage home" [ref=e143]
+      - generic [ref=e144]:
+        - generic [ref=e145]: Featured · Slate
+        - heading "The most demanding material, and the most rewarding one." [level=2] [ref=e146]
+        - generic [ref=e147]:
+          - paragraph [ref=e148]: Slate is cut by hand, nailed by hand, and finished by the small group of SA tradesmen who still know how. A slate roof done right will outlast the home beneath it.
+          - paragraph [ref=e149]: Cederhof installs slate on heritage and estate properties across Joburg North, from full new roofs on period houses in Hyde Park to sympathetic repair on older slate that has slipped or cracked in Dainfern.
+        - link "Slate roofing page" [ref=e150] [cursor=pointer]:
+          - /url: /services/slate-roofing/
+          - text: Slate roofing page
+          - img [ref=e151]
+    - generic [ref=e155]:
+      - generic [ref=e156]:
+        - generic [ref=e157]: What to expect
+        - heading "From first call to sign-off, exactly what happens." [level=2] [ref=e158]
+      - paragraph [ref=e159]: Scroll through the five steps below. Every Cederhof job runs this sequence, no surprises, no day-rate variations, no invoice that does not match the quote.
+    - region "Our process, scroll to advance" [ref=e161]:
+      - generic [ref=e162]:
+        - generic [ref=e163]:
+          - img "Cederhof project lead surveying a Joburg North residential roof before quoting" [ref=e164]
+          - img "Premium residential Johannesburg North home ready for a written quote" [ref=e165]
+          - img "Clay roof tiles prepared and staged for a Cederhof re-roof installation" [ref=e166]
+          - img "Cederhof tradesman installing tile on a Johannesburg North residential roof" [ref=e167]
+          - img "A finished Cederhof roof at golden hour on a premium Joburg North home" [ref=e168]
+        - generic: "01"
+        - generic [ref=e173]: Our process
+        - generic [ref=e180]:
+          - generic [ref=e181]:
+            - generic [ref=e182]: "01"
+            - generic [ref=e183]: Step 1 of 5
+          - heading "Assessment" [level=2] [ref=e184]
+          - paragraph [ref=e185]: Free on-site survey within 48 hours. We look at the whole roof, not just the problem section. Pitch, span, timber condition, flashing, drainage, everything goes into the scope.
+        - generic [ref=e186]:
+          - generic [ref=e187]: Keep scrolling to see every step
+          - generic [ref=e188]:
+            - generic [ref=e189]: Scroll
+            - img [ref=e191]
+    - generic [ref=e193]:
+      - generic [ref=e195]:
+        - generic [ref=e196]:
+          - generic [ref=e197]: Recent work
+          - heading "Projects across Joburg North." [level=2] [ref=e198]
+        - link "Full portfolio" [ref=e199] [cursor=pointer]:
+          - /url: /portfolio/
+          - text: Full portfolio
+          - img [ref=e200]
+      - generic [ref=e202]:
+        - generic [ref=e203]:
+          - figure "Slate re-roof Hyde Park · Feb 2026" [ref=e204]:
+            - img "Slate re-roof on a Hyde Park home, completed Feb 2026" [ref=e205]
+            - generic [ref=e206]:
+              - paragraph [ref=e207]: Slate re-roof
+              - paragraph [ref=e208]: Hyde Park · Feb 2026
+          - figure "Clay tile re-roof Bryanston · Jan 2026" [ref=e209]:
+            - img "Clay tile re-roof on a Bryanston home, completed Jan 2026" [ref=e210]
+            - generic [ref=e211]:
+              - paragraph [ref=e212]: Clay tile re-roof
+              - paragraph [ref=e213]: Bryanston · Jan 2026
+          - figure "Full re-roof Dainfern · Dec 2025" [ref=e214]:
+            - img "Full re-roof on a Dainfern home, completed Dec 2025" [ref=e215]
+            - generic [ref=e216]:
+              - paragraph [ref=e217]: Full re-roof
+              - paragraph [ref=e218]: Dainfern · Dec 2025
+          - figure "Slate extension Sandton · Nov 2025" [ref=e219]:
+            - img "Slate extension on a Sandton home, completed Nov 2025" [ref=e220]
+            - generic [ref=e221]:
+              - paragraph [ref=e222]: Slate extension
+              - paragraph [ref=e223]: Sandton · Nov 2025
+          - figure "Clay tile repair Parkhurst · Oct 2025" [ref=e224]:
+            - img "Clay tile repair on a Parkhurst home, completed Oct 2025" [ref=e225]
+            - generic [ref=e226]:
+              - paragraph [ref=e227]: Clay tile repair
+              - paragraph [ref=e228]: Parkhurst · Oct 2025
+          - figure "Concrete tile re-roof Fourways · Sep 2025" [ref=e229]:
+            - img "Concrete tile re-roof on a Fourways home, completed Sep 2025" [ref=e230]
+            - generic [ref=e231]:
+              - paragraph [ref=e232]: Concrete tile re-roof
+              - paragraph [ref=e233]: Fourways · Sep 2025
+          - figure "Modernist slab waterproofing Sandton · Aug 2025" [ref=e234]:
+            - img "Modernist slab waterproofing on a Sandton home, completed Aug 2025" [ref=e235]
+            - generic [ref=e236]:
+              - paragraph [ref=e237]: Modernist slab waterproofing
+              - paragraph [ref=e238]: Sandton · Aug 2025
+          - figure "Double-storey re-roof Hurlingham · Jul 2025" [ref=e239]:
+            - img "Double-storey re-roof on a Hurlingham home, completed Jul 2025" [ref=e240]
+            - generic [ref=e241]:
+              - paragraph [ref=e242]: Double-storey re-roof
+              - paragraph [ref=e243]: Hurlingham · Jul 2025
+        - paragraph [ref=e245]: Scroll for more
+    - generic [ref=e248]:
+      - generic [ref=e249]:
+        - generic [ref=e250]: Why Cederhof
+        - heading "Craft, not labour. The difference shows in the finish." [level=2] [ref=e251]
+        - paragraph [ref=e252]: 17 years of premium residential work, a single standard, nothing subcontracted that we would not put our name to.
+      - generic [ref=e253]:
+        - generic [ref=e254]:
+          - generic [ref=e255]:
+            - generic [ref=e257]: "0"
+            - paragraph [ref=e258]: Years of craft
+          - generic [ref=e259]:
+            - generic [ref=e261]: "0"
+            - paragraph [ref=e262]: Roofs restored
+          - generic [ref=e263]:
+            - generic [ref=e266]: 0yr
+            - paragraph [ref=e267]: Workmanship guarantee
+        - generic [ref=e268]:
+          - generic [ref=e269]:
+            - heading "Finished by hand" [level=3] [ref=e270]
+            - paragraph [ref=e271]: No spray-and-pray crews. Tradesmen who have been with Cederhof five years or more.
+          - generic [ref=e272]:
+            - heading "Clean site, every day" [level=3] [ref=e273]
+            - paragraph [ref=e274]: Boarded gardens, swept driveways, debris hauled the day it comes off the roof.
+          - generic [ref=e275]:
+            - heading "MBSA-certified" [level=3] [ref=e276]
+            - paragraph [ref=e277]: The only SA body that audits tradesmen on craft, not just paperwork.
+    - generic [ref=e278]:
+      - generic [ref=e280]:
+        - generic [ref=e281]:
+          - generic [ref=e282]: What clients say
+          - heading "Named, with suburb and material. Not anonymous quotes." [level=2] [ref=e283]
+        - paragraph [ref=e284]: Every testimonial below is a real client, real suburb, real material. Full context, not a five-star number on a review platform.
+      - generic [ref=e285]:
+        - generic [ref=e286]:
+          - blockquote [ref=e287]:
+            - generic [ref=e288]:
+              - generic "5 out of 5 stars" [ref=e289]:
+                - img [ref=e290]
+                - img [ref=e292]
+                - img [ref=e294]
+                - img [ref=e296]
+                - img [ref=e298]
+              - paragraph [ref=e300]: "\"We lost a chunk of the slate ridge in the 2025 November storm and had the roof fully re-bedded and flashed within three weeks. Cederhof's team were on site at 07:30 every morning, worked to a written scope, and left the garden cleaner than they found it. No surprises on the invoice. This is how tradesmen used to work.\""
+            - generic [ref=e301]:
+              - paragraph [ref=e302]: Sarah N.
+              - paragraph [ref=e303]: Welsh slate · Hyde Park · March 2026
+          - blockquote [ref=e304]:
+            - generic [ref=e305]:
+              - generic "5 out of 5 stars" [ref=e306]:
+                - img [ref=e307]
+                - img [ref=e309]
+                - img [ref=e311]
+                - img [ref=e313]
+                - img [ref=e315]
+              - paragraph [ref=e317]: "\"Full re-roof on a 1974 ranch house. Cederhof stripped the original Double Roman clay, found two rotten trusses we did not know about, quoted the repair within an hour, and still finished on the original date. We interviewed four contractors and they were not the cheapest, they were the one I believed.\""
+            - generic [ref=e318]:
+              - paragraph [ref=e319]: Marius van der W.
+              - paragraph [ref=e320]: Marseille clay tile · Bryanston · February 2026
+          - blockquote [ref=e321]:
+            - generic [ref=e322]:
+              - generic "5 out of 5 stars" [ref=e323]:
+                - img [ref=e324]
+                - img [ref=e326]
+                - img [ref=e328]
+                - img [ref=e330]
+                - img [ref=e332]
+              - paragraph [ref=e334]: "\"Dainfern HOA approval is a nightmare and Cederhof handled all of it without me having to chase anything. Slate work on a Cape-Dutch revival, sympathetic to the original pitch, finished to a showroom standard. I have already referred two neighbours.\""
+            - generic [ref=e335]:
+              - paragraph [ref=e336]: Priya D.
+              - paragraph [ref=e337]: South African slate · Dainfern · January 2026
+          - blockquote [ref=e338]:
+            - generic [ref=e339]:
+              - generic "5 out of 5 stars" [ref=e340]:
+                - img [ref=e341]
+                - img [ref=e343]
+                - img [ref=e345]
+                - img [ref=e347]
+                - img [ref=e349]
+              - paragraph [ref=e351]: "\"Concrete tile re-roof on a double-storey in Sandton. What I appreciated most was the honest price range up front, they told us structural work might add 15% and it ended up adding 9%. No padding, no surprises. The site was swept every evening.\""
+            - generic [ref=e352]:
+              - paragraph [ref=e353]: Thandi M.
+              - paragraph [ref=e354]: Coverland concrete tile · Sandton · December 2025
+          - blockquote [ref=e355]:
+            - generic [ref=e356]:
+              - generic "5 out of 5 stars" [ref=e357]:
+                - img [ref=e358]
+                - img [ref=e360]
+                - img [ref=e362]
+                - img [ref=e364]
+                - img [ref=e366]
+              - paragraph [ref=e368]: "\"Emergency leak on a Sunday evening during the big January storm. Cederhof had a tarp up on the Monday morning and the permanent repair done the following week. The flashing around the chimney had been wrong for twenty years; it has not leaked since.\""
+            - generic [ref=e369]:
+              - paragraph [ref=e370]: David and Anne K.
+              - paragraph [ref=e371]: Lead flashing · Parkhurst · January 2026
+          - blockquote [ref=e372]:
+            - generic [ref=e373]:
+              - generic "5 out of 5 stars" [ref=e374]:
+                - img [ref=e375]
+                - img [ref=e377]
+                - img [ref=e379]
+                - img [ref=e381]
+                - img [ref=e383]
+              - paragraph [ref=e385]: "\"We had three quotes for waterproofing on a flat concrete slab roof. Cederhof was in the middle on price but the only quote that explained why the existing torch-on had failed. The others just wanted to layer over it. Two years in, no leaks.\""
+            - generic [ref=e386]:
+              - paragraph [ref=e387]: Johan P.
+              - paragraph [ref=e388]: Two-layer torch-on · Rivonia · Ongoing since 2024
+          - blockquote [ref=e389]:
+            - generic [ref=e390]:
+              - generic [ref=e391]:
+                - img [ref=e392]
+                - img [ref=e394]
+                - img [ref=e396]
+                - img [ref=e398]
+                - img [ref=e400]
+              - paragraph [ref=e402]: "\"We lost a chunk of the slate ridge in the 2025 November storm and had the roof fully re-bedded and flashed within three weeks. Cederhof's team were on site at 07:30 every morning, worked to a written scope, and left the garden cleaner than they found it. No surprises on the invoice. This is how tradesmen used to work.\""
+            - generic [ref=e403]:
+              - paragraph [ref=e404]: Sarah N.
+              - paragraph [ref=e405]: Welsh slate · Hyde Park · March 2026
+          - blockquote [ref=e406]:
+            - generic [ref=e407]:
+              - generic [ref=e408]:
+                - img [ref=e409]
+                - img [ref=e411]
+                - img [ref=e413]
+                - img [ref=e415]
+                - img [ref=e417]
+              - paragraph [ref=e419]: "\"Full re-roof on a 1974 ranch house. Cederhof stripped the original Double Roman clay, found two rotten trusses we did not know about, quoted the repair within an hour, and still finished on the original date. We interviewed four contractors and they were not the cheapest, they were the one I believed.\""
+            - generic [ref=e420]:
+              - paragraph [ref=e421]: Marius van der W.
+              - paragraph [ref=e422]: Marseille clay tile · Bryanston · February 2026
+          - blockquote [ref=e423]:
+            - generic [ref=e424]:
+              - generic [ref=e425]:
+                - img [ref=e426]
+                - img [ref=e428]
+                - img [ref=e430]
+                - img [ref=e432]
+                - img [ref=e434]
+              - paragraph [ref=e436]: "\"Dainfern HOA approval is a nightmare and Cederhof handled all of it without me having to chase anything. Slate work on a Cape-Dutch revival, sympathetic to the original pitch, finished to a showroom standard. I have already referred two neighbours.\""
+            - generic [ref=e437]:
+              - paragraph [ref=e438]: Priya D.
+              - paragraph [ref=e439]: South African slate · Dainfern · January 2026
+          - blockquote [ref=e440]:
+            - generic [ref=e441]:
+              - generic [ref=e442]:
+                - img [ref=e443]
+                - img [ref=e445]
+                - img [ref=e447]
+                - img [ref=e449]
+                - img [ref=e451]
+              - paragraph [ref=e453]: "\"Concrete tile re-roof on a double-storey in Sandton. What I appreciated most was the honest price range up front, they told us structural work might add 15% and it ended up adding 9%. No padding, no surprises. The site was swept every evening.\""
+            - generic [ref=e454]:
+              - paragraph [ref=e455]: Thandi M.
+              - paragraph [ref=e456]: Coverland concrete tile · Sandton · December 2025
+          - blockquote [ref=e457]:
+            - generic [ref=e458]:
+              - generic [ref=e459]:
+                - img [ref=e460]
+                - img [ref=e462]
+                - img [ref=e464]
+                - img [ref=e466]
+                - img [ref=e468]
+              - paragraph [ref=e470]: "\"Emergency leak on a Sunday evening during the big January storm. Cederhof had a tarp up on the Monday morning and the permanent repair done the following week. The flashing around the chimney had been wrong for twenty years; it has not leaked since.\""
+            - generic [ref=e471]:
+              - paragraph [ref=e472]: David and Anne K.
+              - paragraph [ref=e473]: Lead flashing · Parkhurst · January 2026
+          - blockquote [ref=e474]:
+            - generic [ref=e475]:
+              - generic [ref=e476]:
+                - img [ref=e477]
+                - img [ref=e479]
+                - img [ref=e481]
+                - img [ref=e483]
+                - img [ref=e485]
+              - paragraph [ref=e487]: "\"We had three quotes for waterproofing on a flat concrete slab roof. Cederhof was in the middle on price but the only quote that explained why the existing torch-on had failed. The others just wanted to layer over it. Two years in, no leaks.\""
+            - generic [ref=e488]:
+              - paragraph [ref=e489]: Johan P.
+              - paragraph [ref=e490]: Two-layer torch-on · Rivonia · Ongoing since 2024
+        - paragraph [ref=e491]: Hover to pause
+    - generic [ref=e493]:
+      - generic [ref=e494]:
+        - generic [ref=e495]:
+          - generic [ref=e496]: Service areas
+          - heading "Focused on Johannesburg North." [level=2] [ref=e497]
+        - paragraph [ref=e498]: Eight suburbs we know by street. We do not stretch our footprint to claim coverage we cannot deliver quickly.
+      - generic [ref=e499]:
+        - generic [ref=e501]:
+          - iframe [ref=e502]
+          - generic: Johannesburg North
+        - list [ref=e503]:
+          - listitem [ref=e504]:
+            - link "Dainfern Primary area · 15 km" [ref=e505] [cursor=pointer]:
+              - /url: /areas/dainfern/
+              - generic [ref=e506]:
+                - paragraph [ref=e507]: Dainfern
+                - paragraph [ref=e508]: Primary area · 15 km
+              - img [ref=e509]
+          - listitem [ref=e511]:
+            - link "Sandton Primary area · 6 km" [ref=e512] [cursor=pointer]:
+              - /url: /areas/sandton/
+              - generic [ref=e513]:
+                - paragraph [ref=e514]: Sandton
+                - paragraph [ref=e515]: Primary area · 6 km
+              - img [ref=e516]
+          - listitem [ref=e518]:
+            - link "Bryanston Primary area · 0 km" [ref=e519] [cursor=pointer]:
+              - /url: /areas/bryanston/
+              - generic [ref=e520]:
+                - paragraph [ref=e521]: Bryanston
+                - paragraph [ref=e522]: Primary area · 0 km
+              - img [ref=e523]
+          - listitem [ref=e525]:
+            - link "Hyde Park Primary area · 8 km" [ref=e526] [cursor=pointer]:
+              - /url: /areas/hyde-park/
+              - generic [ref=e527]:
+                - paragraph [ref=e528]: Hyde Park
+                - paragraph [ref=e529]: Primary area · 8 km
+              - img [ref=e530]
+          - listitem [ref=e532]:
+            - link "Fourways Secondary area · 12 km" [ref=e533] [cursor=pointer]:
+              - /url: /areas/fourways/
+              - generic [ref=e534]:
+                - paragraph [ref=e535]: Fourways
+                - paragraph [ref=e536]: Secondary area · 12 km
+              - img [ref=e537]
+          - listitem [ref=e539]:
+            - link "Rivonia Secondary area · 4 km" [ref=e540] [cursor=pointer]:
+              - /url: /areas/rivonia/
+              - generic [ref=e541]:
+                - paragraph [ref=e542]: Rivonia
+                - paragraph [ref=e543]: Secondary area · 4 km
+              - img [ref=e544]
+          - listitem [ref=e546]:
+            - link "Hurlingham Secondary area · 5 km" [ref=e547] [cursor=pointer]:
+              - /url: /areas/hurlingham/
+              - generic [ref=e548]:
+                - paragraph [ref=e549]: Hurlingham
+                - paragraph [ref=e550]: Secondary area · 5 km
+              - img [ref=e551]
+          - listitem [ref=e553]:
+            - link "Parkhurst Secondary area · 10 km" [ref=e554] [cursor=pointer]:
+              - /url: /areas/parkhurst/
+              - generic [ref=e555]:
+                - paragraph [ref=e556]: Parkhurst
+                - paragraph [ref=e557]: Secondary area · 10 km
+              - img [ref=e558]
+    - generic [ref=e563]:
+      - generic [ref=e564]:
+        - generic [ref=e565]: Questions
+        - heading "Straight answers to the questions you would ask on a first call." [level=2] [ref=e566]
+        - paragraph [ref=e567]: Still unanswered? Send a WhatsApp message, we respond personally, not via a bot.
+      - generic [ref=e568]:
+        - group [ref=e569]:
+          - generic "How much does a full re-roof cost in Joburg North?" [ref=e570] [cursor=pointer]:
+            - generic [ref=e571]: How much does a full re-roof cost in Joburg North?
+            - img [ref=e573]
+        - group [ref=e575]:
+          - generic "How soon can you come out for a quote?" [ref=e576] [cursor=pointer]:
+            - generic [ref=e577]: How soon can you come out for a quote?
+            - img [ref=e579]
+        - group [ref=e581]:
+          - generic "Do you work in my suburb?" [ref=e582] [cursor=pointer]:
+            - generic [ref=e583]: Do you work in my suburb?
+            - img [ref=e585]
+        - group [ref=e587]:
+          - generic "Are you MBSA registered?" [ref=e588] [cursor=pointer]:
+            - generic [ref=e589]: Are you MBSA registered?
+            - img [ref=e591]
+        - group [ref=e593]:
+          - generic "How long does the work take?" [ref=e594] [cursor=pointer]:
+            - generic [ref=e595]: How long does the work take?
+            - img [ref=e597]
+        - group [ref=e599]:
+          - generic "What guarantees do you provide?" [ref=e600] [cursor=pointer]:
+            - generic [ref=e601]: What guarantees do you provide?
+            - img [ref=e603]
+        - group [ref=e605]:
+          - generic "Do you handle estate and HOA approvals?" [ref=e606] [cursor=pointer]:
+            - generic [ref=e607]: Do you handle estate and HOA approvals?
+            - img [ref=e609]
+        - group [ref=e611]:
+          - generic "Can we live in the house during a full re-roof?" [ref=e612] [cursor=pointer]:
+            - generic [ref=e613]: Can we live in the house during a full re-roof?
+            - img [ref=e615]
+    - generic [ref=e618]:
+      - generic [ref=e619]:
+        - generic [ref=e620]: Free quote in 48 hours
+        - heading "Tell us what you need. We will be on site within 48 hours." [level=2] [ref=e621]
+        - paragraph [ref=e622]: Free on-site assessment across Johannesburg North. No obligation, no pushy sales, just an honest look at the work and a written price within two days.
+      - generic [ref=e623]:
+        - link "WhatsApp 082 654 3210" [ref=e624] [cursor=pointer]:
+          - /url: https://wa.me/27826543210?text=Hi%20Cederhof%2C%20I'd%20like%20a%20free%20roof%20assessment%20for%20my%20home.
+          - img [ref=e625]
+          - text: WhatsApp 082 654 3210
+        - link "Call 011 234 5678" [ref=e627] [cursor=pointer]:
+          - /url: tel:+27112345678
+  - contentinfo [ref=e628]:
+    - generic [ref=e629]:
+      - generic [ref=e630]:
+        - generic [ref=e631]:
+          - link "Est. 2009 Cederhof Roofing" [ref=e632] [cursor=pointer]:
+            - /url: /
+            - img [ref=e634]
+            - generic [ref=e637]:
+              - generic [ref=e638]: Est. 2009
+              - generic [ref=e639]: Cederhof Roofing
+          - paragraph [ref=e640]: Premium residential roofing for Johannesburg North since 2009. Slate, clay tile, concrete tile, full re-roofing, and waterproofing for heritage and estate homes. MBSA member.
+          - generic [ref=e641]:
+            - generic [ref=e642]: MBSA
+            - generic [ref=e643]: CIPC
+            - generic [ref=e644]: PIRB
+        - generic [ref=e645]:
+          - heading "Services" [level=3] [ref=e646]
+          - list [ref=e647]:
+            - listitem [ref=e648]:
+              - link "Slate Roofing" [ref=e649] [cursor=pointer]:
+                - /url: /services/slate-roofing/
+            - listitem [ref=e650]:
+              - link "Clay Tile Roofing" [ref=e651] [cursor=pointer]:
+                - /url: /services/clay-tile-roofing/
+            - listitem [ref=e652]:
+              - link "Concrete Tile Roofing" [ref=e653] [cursor=pointer]:
+                - /url: /services/concrete-tile-roofing/
+            - listitem [ref=e654]:
+              - link "Full Re-Roofing" [ref=e655] [cursor=pointer]:
+                - /url: /services/re-roofing/
+            - listitem [ref=e656]:
+              - link "Waterproofing & Flashing" [ref=e657] [cursor=pointer]:
+                - /url: /services/waterproofing/
+        - generic [ref=e658]:
+          - heading "Service areas" [level=3] [ref=e659]
+          - list [ref=e660]:
+            - listitem [ref=e661]:
+              - link "Dainfern" [ref=e662] [cursor=pointer]:
+                - /url: /areas/dainfern/
+            - listitem [ref=e663]:
+              - link "Sandton" [ref=e664] [cursor=pointer]:
+                - /url: /areas/sandton/
+            - listitem [ref=e665]:
+              - link "Bryanston" [ref=e666] [cursor=pointer]:
+                - /url: /areas/bryanston/
+            - listitem [ref=e667]:
+              - link "Hyde Park" [ref=e668] [cursor=pointer]:
+                - /url: /areas/hyde-park/
+            - listitem [ref=e669]:
+              - link "Fourways" [ref=e670] [cursor=pointer]:
+                - /url: /areas/fourways/
+            - listitem [ref=e671]:
+              - link "Rivonia" [ref=e672] [cursor=pointer]:
+                - /url: /areas/rivonia/
+            - listitem [ref=e673]:
+              - link "Hurlingham" [ref=e674] [cursor=pointer]:
+                - /url: /areas/hurlingham/
+            - listitem [ref=e675]:
+              - link "Parkhurst" [ref=e676] [cursor=pointer]:
+                - /url: /areas/parkhurst/
+        - generic [ref=e677]:
+          - heading "Contact" [level=3] [ref=e678]
+          - generic [ref=e679]:
+            - text: Bryanston
+            - text: Johannesburg, Gauteng 2191
+            - text: South Africa
+          - list [ref=e680]:
+            - listitem [ref=e681]:
+              - link "011 234 5678" [ref=e682] [cursor=pointer]:
+                - /url: tel:+27112345678
+            - listitem [ref=e683]:
+              - link "WhatsApp 082 654 3210" [ref=e684] [cursor=pointer]:
+                - /url: https://wa.me/27826543210?text=Hi%20Cederhof%2C%20I'd%20like%20a%20free%20roof%20assessment%20for%20my%20home.
+            - listitem [ref=e685]:
+              - link "hello@cederhofroofing.co.za" [ref=e686] [cursor=pointer]:
+                - /url: mailto:hello@cederhofroofing.co.za
+          - heading "Business hours" [level=4] [ref=e687]
+          - list [ref=e688]:
+            - listitem [ref=e689]:
+              - generic [ref=e690]: Mon
+              - generic [ref=e691]: 07:30 – 17:00
+            - listitem [ref=e692]:
+              - generic [ref=e693]: Tue
+              - generic [ref=e694]: 07:30 – 17:00
+            - listitem [ref=e695]:
+              - generic [ref=e696]: Wed
+              - generic [ref=e697]: 07:30 – 17:00
+            - listitem [ref=e698]:
+              - generic [ref=e699]: Thu
+              - generic [ref=e700]: 07:30 – 17:00
+            - listitem [ref=e701]:
+              - generic [ref=e702]: Fri
+              - generic [ref=e703]: 07:30 – 17:00
+            - listitem [ref=e704]:
+              - generic [ref=e705]: Sat
+              - generic [ref=e706]: 08:00 – 13:00
+            - listitem [ref=e707]:
+              - generic [ref=e708]: Sun
+              - generic [ref=e709]: Closed
+      - generic [ref=e710]:
+        - note [ref=e711]:
+          - generic [ref=e712]: Demo
+          - generic [ref=e713]:
+            - strong [ref=e714]: This is a demo website.
+            - text: Cederhof Roofing is a fictional business built by KILO Agency as a portfolio example. Names, phone numbers, reviews, pricing and projects are invented. Do not try to contact this company.
+        - generic [ref=e715]:
+          - paragraph [ref=e716]: © 2026 Cederhof Roofing. All rights reserved. 17 years of craft. Est. 2009.
+          - paragraph [ref=e717]: Built by KILO Agency
