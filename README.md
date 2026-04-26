@@ -90,7 +90,7 @@ Vercel adapter output lands in `.vercel/output`.
 
 - Stock photography via [Pexels](https://pexels.com) (see `src/assets/images/stock/manifest.json`)
 - Google Fonts: Archivo, Geist
-- [KILO Agency](https://kiloagency.org) — Chad van der Walt, Roodepoort, South Africa
+- [KILO Agency](https://kiloagency.org)
 
 ## License
 
